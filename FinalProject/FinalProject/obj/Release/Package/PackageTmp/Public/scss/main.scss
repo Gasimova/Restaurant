@@ -1,0 +1,41 @@
+
+// common
+@import "shared/variables";
+@import "shared/mixings";
+
+
+//components
+@import "components/header.scss";
+@import "components/footer.scss";
+@import "components/foodQuality.scss";
+@import "components/vincentTitle.scss";
+@import "components/pagination.scss";
+@import "components/tags.scss";
+@import "components/featuredPosts.scss";
+@import "components/reservation.scss";
+@import "components/menuCategories.scss";
+@import "components/instaFeed.scss";
+@import "components/recentPosts.scss";
+@import "components/goTop.scss";
+
+
+//pages
+@import "pages/index.scss";
+@import "pages/about.scss";
+@import "pages/menu.scss";
+@import "pages/blog.scss";
+@import "pages/blogDetails.scss";
+@import "pages/shop.scss";
+@import "pages/team.scss";
+@import "pages/contact.scss";
+@import "pages/login.scss";
+@import "pages/signUp.scss";
+@import "pages/productDetails.scss";
+@import "pages/cart.scss";
+@import "pages/checkout.scss";
+@import "pages/settings.scss";
+@import "pages/orders.scss";
+
+
+
+

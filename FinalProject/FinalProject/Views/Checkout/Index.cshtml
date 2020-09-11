@@ -1,0 +1,159 @@
+﻿@model FinalProject.ViewModels.vmCheckout
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <section id="vincentTitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="innerText">
+                        <h1>Checkout</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="checkout">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <form autocomplete="off">
+                        <div class="billingDetails">
+                            <h3>Billing Details</h3>
+                            @if (Session["LoginnerUser"] == null)
+                            {
+                                <label class="name" for="name">First name *</label>
+                                <input class="custom" type="text" id="name" name="Name">
+                                <label class="name" for="lastName">Last name *</label>
+                                <input class="custom" type="text" id="lastName" name="Surname">
+                                <label for="address">Address *</label>
+                                <input type="text" id="address" name="Address">
+                                <label for="phone">Phone *</label>
+                                <input type="number" id="phone" name="Phone">
+                                <label for="email">Email address *</label>
+                                <input type="email" id="email" name="Email">
+                            }
+                            <div class="cartDetails">
+                                <h3>Please enter your card <br> information</h3>
+                                <label class="myLabel" for="owner">Name on cart *</label>
+                                <input type="text" id="owner">
+                                <label class="myLabel" for="cvv">CVV *</label>
+                                <input type="number" id="cvv">
+                                <label for="cardNumber">Card Number *</label>
+                                <input type="number" class="cardNumber">
+                                <label for="month">Expired date *</label>
+                                <input type="number" class="expiredDate">
+                                <input type="number" class="expiredDate">
+                                <img src="~/Public/img/mastercardLogo.png" alt="">
+                            </div>
+                            <div class="additionalInfo">
+                                <h3>Additional information</h3>
+                                <textarea name="additional" id="additional" cols="30" rows="2"
+                                          placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                            </div>
+                        </div>
+                        <div class="yourOrder">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                @{ decimal total = 0;}
+                                @if (Model.Menus != null)
+                                {
+                                    foreach (var item in Model.Menus)
+                                    {
+                                        total += (item.Price * item.Quantity);
+                                  <tbody>
+                                      <tr>
+                                    <td data-id="@item.Id"> @item.Name &nbsp; <strong> x @item.Quantity </strong></td>
+                                    <td data-price="@item.Price">$ @(item.Quantity* @item.Price)</td>
+                                      </tr>
+                                     <input type="hidden" class="productId" name="ProductId" value="@item.Id" />
+                                     <input type="hidden" class="productQuantity" name="ProductQuantity" value="@item.Quantity" />
+                                 </tbody>
+                                    }
+                                }
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <td><span>$ @total</span></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="placeOrder">
+                            <p>
+                                Your personal data will be used to process your order, support your experience throughout
+                                this website, and for other purposes described in our <a href="#">privacy policy</a> .
+                            </p>
+                            <button class="PlaceOrder" >Place order</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+
+                    <div class="posts">
+                        <h6>Featured Posts</h6>
+                        @foreach (var item in Model.Blogs.Take(2))
+                        {
+                            <div class="post">
+                                <img src="~/Uploads/@item.Image" alt="">
+                                <a href="@Url.Action("Detail","Blogs", new { id=item.Id})">
+                                    <h4>@item.Title</h4>
+                                </a>
+                                <span>@item.Date.ToString("MMMM dd,yyyy")</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="recentPosts">
+                        <h6>Recent Posts</h6>
+                        <ul>
+                            @foreach (var item in Model.Blogs.Take(5))
+                            {
+                                <li><a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">@item.Title</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="rightSideTags">
+                        <h6>Tags</h6>
+                        @foreach (var item in Model.Tags.OrderByDescending(o => o.Name).Take(7))
+                        {
+                            <a href="@Url.Action("Index","Blogs", new { tag=item.Name})" name="tag"> #@item.Name</a>
+                        }
+                    </div>
+                    <div class="instaFeed">
+                        <h6>Instafeed</h6>
+                        @foreach (var item in Model.InstaFeeds.Take(6))
+                        {
+                            <a href="@item.Link">
+                                <img src="~/Uploads/@item.Image" alt="">
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="goTopBtn">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="goTop">
+                        <i class="fas fa-chevron-up animate heartBeat"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

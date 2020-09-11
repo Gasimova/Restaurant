@@ -1,0 +1,365 @@
+#singleProduct {
+    background: $black;
+    color: $white;
+    font-family: $titleFont;
+
+    .container {
+        .row {
+            .col-lg-8 {
+                padding-left: 0px !important;
+
+                .product {
+                    margin-top: 100px;
+
+                    .image {
+                        background-image: url("../img/product1.png");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: 100%;
+                        width: 350px;
+                        height: 350px;
+                        border-radius: 50%;
+                        margin-bottom: 40px;
+
+                        &:hover {
+                            background-size: 160%;
+                        }
+                    }
+
+                    .detail {
+                        display: inline-block;
+                        margin-left: 40px;
+
+                        h1 {
+                            letter-spacing: 8px;
+                            text-transform: uppercase;
+                            margin-bottom: 25px;
+                        }
+
+                        .price {
+                            font-size: 32px;
+                            line-height: 32px;
+                            letter-spacing: 3px;
+                            font-weight: 700;
+                            color: $orange;
+                        }
+
+                        p {
+                            font-family: $textFont;
+                            font-weight: 100;
+                            margin-top: 40px;
+                            margin-bottom: 125px;
+                        }
+
+                        input {
+                            font-size: 17px;
+                            background: transparent;
+                            border: 2px solid $white;
+                            color: $white;
+                            margin-right: 23px;
+                            width: 45px;
+                            height: 41px;
+                            padding-left: 17px;
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+
+                        input::-webkit-outer-spin-button,
+                        input::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+
+                        a {
+                            @include buttonWhite;
+                        }
+                    }
+
+                    .description {
+                        position: relative;
+                        margin-top: 100px;
+
+                        ul {
+                            text-align: center;
+
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                width: 211px;
+                                height: 2px;
+                                z-index: 99;
+                                top: 44px;
+                                background: $white;
+                                left: 0;
+                            }
+
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                width: 170px;
+                                height: 2px;
+                                z-index: 99;
+                                top: 44px;
+                                background: $white;
+                                right: 0;
+                            }
+
+                            li {
+                                list-style: none;
+                                display: inline-block;
+                                margin-right: -2px;
+                                border: 2px solid white;
+                                padding: 8px 26px;
+                                cursor: pointer;
+
+                                h5 {
+                                    font-size: 16px;
+                                    letter-spacing: 2px;
+                                }
+
+                                &:hover {
+                                    h5 {
+                                        color: $orange;
+                                    }
+                                }
+                            }
+
+                            .main {
+                                background: $gray;
+                                border-bottom: none;
+                            }
+                        }
+
+                        p {
+                            font-family: $textFont;
+                            font-weight: 100;
+                            opacity: 1;
+                            margin-top: 50px;
+                        }
+
+                        .aboutProduct {
+                            margin-top: -80px;
+                            font-family: $textFont;
+                            opacity: 0;
+                            margin-top: 50px;
+
+                            h4 {
+                                display: inline-block;
+                                margin-right: 40px;
+                                font-weight: 700;
+                                font-size: 16px;
+                            }
+
+                            span {
+                            }
+                        }
+
+                        .aboutProduct2 {
+                            margin-top: -80px;
+                            font-family: $textFont;
+                            opacity: 0;
+
+                            h4 {
+                                display: inline-block;
+                                margin-right: 40px;
+                                font-weight: 700;
+                                font-size: 16px;
+                            }
+
+                            span {
+                            }
+                        }
+                    }
+
+                    .realtedProducts {
+                        text-align: center;
+                        font-family: $titleFont;
+                        padding-bottom: 100px;
+                        margin-top: 300px;
+
+                        .title {
+                            margin-top: -100px;
+                            margin-bottom: 100px;
+                            text-transform: uppercase;
+                            letter-spacing: 3px;
+                        }
+
+                        .item {
+                            display: inline-block;
+                            background: $gray;
+                            color: $white;
+                            padding: 10px 17px;
+                            padding-bottom: 40px;
+                            margin-right: 35px;
+
+                            img {
+                                width: 110px;
+                                height: 110px;
+                                border-radius: 50%;
+                                margin-top: -65px;
+                                margin-bottom: 40px;
+                            }
+
+                            .subtitle {
+                                font-size: 18px;
+                                line-height: 26px;
+                                letter-spacing: 3px;
+                                font-weight: 700;
+                                text-transform: uppercase;
+
+                                a {
+                                    text-decoration: none;
+                                    color: $white;
+
+                                    &:hover {
+                                        color: $orange;
+                                    }
+                                }
+                            }
+
+                            p {
+                                width: 169px;
+                                font-family: $textFont;
+                                font-weight: 100;
+                                font-size: 14px;
+                            }
+
+                            span {
+                                font-size: 24px;
+                                line-height: 26px;
+                                letter-spacing: 3px;
+                                display: block;
+                                margin-bottom: 30px;
+                            }
+
+                            .add {
+                                @include buttonWhite;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .col-lg-4 {
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    #singleProduct {
+        .container {
+            .row {
+                .col-lg-8 {
+                    .product {
+                        .image {
+                            width: 400px !important;
+                            height: 400px !important;
+                            display: block !important;
+                        }
+                        .detail {
+                            p {
+                                width: 100% !important;
+                            }
+                        }
+                        .realtedProducts {
+                            width: 100% !important;
+                            padding-bottom: 100px !important;
+                            .item {
+                                width: 28% !important;
+                                padding-right: 0px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 772px) {
+    #singleProduct {
+        .container {
+            .row {
+                .col-lg-8 {
+                    .product {
+                        .image {
+                            width: 400px !important;
+                            height: 400px !important;
+                        }
+                        .detail {
+                            p {
+                                width: 100% !important;
+                            }
+                        }
+                        .realtedProducts {
+                            width: 100% !important;
+                            .item {
+                                width: 26% !important;
+                                padding-right: 0px !important;
+                                .add {
+                                    padding: 5px 5px;
+                                    margin-left: -15px;
+                                    font-size: 11px;
+                                }
+                                img {
+                                    width: 90px;
+                                    height: 90px;
+                                    margin-left: -16px;
+                                }
+                                h2 {
+                                    font-size: 16px;
+                                }
+                                p {
+                                    width: 85%;
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    #singleProduct {
+        .container {
+            .row {
+                .col-lg-8 {
+                    .product {
+                        .image {
+                            width: 400px !important;
+                            height: 400px !important;
+                            margin-left: 70px !important;
+                        }
+                        .detail {
+                            p {
+                                width: 100% !important;
+                            }
+                        }
+                        .realtedProducts {
+                            padding-bottom: 0px !important;
+                            width: 100% !important;
+                            .item {
+                                width: 29% !important;
+                                padding-right: 0px !important;
+                                padding-left: 0px !important;
+                                margin-right: 8px !important;
+                                img{
+                                    margin-left: 0px;
+                                }
+                                p {
+                                    width: 100% !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

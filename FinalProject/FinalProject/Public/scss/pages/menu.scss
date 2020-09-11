@@ -1,0 +1,551 @@
+#menuPages {
+    font-family: $titleFont;
+    background: $black;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    .container {
+        .row {
+            margin-bottom: 100px;
+            .col-lg-5 {
+                padding: 0px 0px !important;
+                .menuImage {
+                    background-image: url("../img/offer1.jpg");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    width: 100%;
+                    margin-top: -23px;
+                    min-height: 650px;
+                }
+                .menuImage2 {
+                    background-image: url("../img/offer2.jpg");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    width: 100%;
+                    margin-top: -23px;
+                    min-height: 650px;
+                }
+                .menuImage3 {
+                    background-image: url("../img/offer3.jpg");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    width: 100%;
+                    margin-top: -23px;
+                    min-height: 650px;
+                }
+            }
+            .col-lg-7 {
+                padding: 0px 0px !important;
+                .menuList {
+                    background-color: rgb(29, 35, 38);
+                    color: $white;
+                    height: 600px;
+                    padding-top: 70px;
+                    ul {
+                        padding: 0px 0px;
+                        li {
+                            list-style: none;
+                            display: inline-block;
+                            vertical-align: top;
+                            margin-bottom: 20px;
+                            .listItems {
+                                text-align: left;
+                                font-size: 14px;
+                                line-height: 28px;
+                                height: 100px;
+                                margin-left: 60px;
+                                a {
+                                    text-decoration: none;
+                                    transition: all 0.5s;
+                                    color: $white;
+                                    &:hover {
+                                        text-decoration: none;
+                                        h1 .diff {
+                                            color: $orange;
+                                            text-decoration: none;
+                                        }
+                                    }
+                                    h1 {
+                                        font-size: 18px;
+                                        line-height: 26px;
+                                        letter-spacing: 3px;
+                                        font-weight: 700;
+                                        .price {
+                                            float: right;
+                                            position: relative;
+                                            z-index: 99;
+                                            background: rgb(29, 35, 38);
+                                        }
+                                        .diff {
+                                            position: relative;
+                                            z-index: 99;
+                                            background: rgb(29, 35, 38);
+                                            text-transform: uppercase;
+                                        }
+                                    }
+                                    .dots {
+                                        font-size: 10px;
+                                        width: 100%;
+                                        border-bottom: 2px dotted #dce4e8;
+                                        position: relative;
+                                        top: -17px;
+                                        opacity: 0.3;
+                                    }
+                                    p {
+                                        font-family: $textFont;
+                                        font-size: 14px;
+                                        font-weight: 100;
+                                        width: 228px;
+                                        margin-bottom: 0px !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#discover {
+    background-image: url("../img/back_3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    .container {
+        .row {
+            .col-lg-12 {
+                h1 {
+                    letter-spacing: 8px;
+                    font-family: $titleFont;
+                }
+            }
+        }
+    }
+}
+
+#menuList {
+    background: $black;
+    text-align: center;
+    color: $white;
+    font-family: $titleFont;
+    padding-bottom: 100px;
+
+    .container {
+        .row {
+            margin-bottom: 75px;
+
+            .col-lg-12 {
+                .list {
+                    padding-top: 90px;
+
+                    ul {
+                        li {
+                            list-style: none;
+                            display: inline-block;
+                            cursor: pointer;
+                            vertical-align: top;
+                            font-size: 18px;
+                            line-height: 26px;
+                            letter-spacing: 4px;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            margin-right: 35px;
+                            transition: all 0.3s;
+
+                            a {
+                                text-decoration: none;
+                                color: white;
+
+                                &:hover {
+                                    color: $orange;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .col-lg-6 {
+                .listItem {
+                    text-align: left;
+                    margin-bottom: 70px;
+
+                    .image {
+                        width: 50%;
+                        position: relative;
+
+                        &:hover {
+                            .overlay {
+                                display: block;
+
+                                .cartIcon {
+                                    display: block;
+                                }
+                            }
+                        }
+
+                        a {
+                            text-decoration: none;
+                            color: $white;
+                        }
+
+                        img {
+                            max-width: 100%;
+                            display: inline-block;
+                            border-radius: 50%;
+                        }
+
+                        .overlay {
+                            background: $orange;
+                            width: 100%;
+                            position: absolute;
+                            top: 0;
+                            height: 100%;
+                            border-radius: 50%;
+                            opacity: 0.8;
+                            display: none;
+                            transition: all 0.3s;
+
+                            .cartIcon {
+                                background-image: url("../img/add_to_cart.png");
+                                width: 20%;
+                                height: 20%;
+                                background-repeat: no-repeat;
+                                position: absolute;
+                                top: 110px;
+                                left: 120px;
+                                background-size: 40px 40px;
+                                opacity: 1;
+                                transition: all 0.3s;
+                                cursor: pointer;
+                                display: none;
+                            }
+
+                            .bagIcon {
+                                position: absolute;
+                                top: 110px;
+                                left: 155px;
+                                display: none;
+                                transition: all 0.3s;
+
+                                a {
+                                    i {
+                                        font-size: 38px;
+                                        color: black;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .addedToBag {
+                        .cartIcon {
+                            left: 80px !important;
+                        }
+
+                        .bagIcon {
+                            display: block !important;
+                        }
+                    }
+
+                    .info {
+                        display: inline-block;
+                        position: absolute;
+                        top: 25%;
+                        left: 55%;
+
+                        a {
+                            text-decoration: none !important;
+                            color: $white !important;
+
+                            h5 {
+                                text-transform: uppercase;
+                                letter-spacing: 3px;
+                                font-weight: 700;
+
+                                &:hover {
+                                    color: $orange;
+                                }
+                            }
+                        }
+
+                        p {
+                            font-family: $textFont;
+                            font-size: 14px;
+                            font-weight: 100;
+                        }
+
+                        .price {
+                            font-size: 18px;
+                            color: $orange;
+                            letter-spacing: 3px;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+
+            .col-lg-12 {
+                .viewBtn {
+                    text-align: center;
+
+                    a {
+                        @include buttonWhite;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:1200px){
+    #menuList{
+        .container{
+            .row{
+                .col-lg-6{
+                    .listItem{
+                        margin-bottom: 100px;
+                        .info{
+                            top: 76%;
+                            left: -21%;
+                            text-align: center;
+                        p{
+                            padding: 0px 110px;
+                        }
+                        }
+                            .image {
+                                width: 61% !important;
+                                margin-left: 31px;
+                                a{
+                                    img{
+                                        display: block;
+                                    }
+                                }
+                            }
+                    }
+                }
+            }
+        }
+    }
+
+    #menuPages{
+        .container{
+            .row{
+                .col-lg-7{
+                    .menuList{
+                        ul{
+                            li{
+                                .listItems{
+                                    margin-left: 30px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    #menuPages {
+        .container {
+            .col-lg-7 {
+                .menuList {
+                    padding-top: 45px;
+                    ul {
+                        li {
+                            width: 180px;
+                            .listItems {
+                                margin-left: 20px !important;
+                                margin-right: -10px !important;
+                                a {
+                                    h1 {
+                                        font-size: 16px;
+                                    }
+                                    p {
+                                        width: 145px !important;
+                                        font-size: 12px !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #menuList{
+        .container{
+            .row{
+                .col-lg-6{
+                    .listItem{
+                        margin-bottom: 100px;
+                        .info{
+                            top: 76%;
+                            left: -11%;
+                            text-align: center;
+                        p{
+                            padding: 0px 30px;
+                        }
+                        }
+                            .image {
+                                width: 80% !important;
+                                a{
+                                    img{
+                                        display: block;
+                                    }
+                                }
+                            }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #menuPages {
+        .container {
+            .row {
+                .col-lg-7 {
+                    .menuList {
+                        padding-top: 20px;
+                        ul {
+                            li {
+                                margin-bottom: -30px;
+                                .listItems {
+                                    margin-left: 20px !important;
+                                    
+                                    a {
+                                        h1 {
+                                            font-size: 14px !important;
+                                        }
+                                        p {
+                                            font-size: 11px !important;
+                                            width: 100% !important;
+                                            margin-top: -24px;
+                                        }
+                                        .dots {
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #menuList {
+        .container {
+            .row {
+                margin-bottom: 0px !important;
+                .col-lg-6 {
+                    .listItem {
+                        margin-bottom: 50px !important;
+                        .image {
+                            max-width: 54% !important;
+                        }
+                        .info {
+                            top: 14% !important;
+                            left: 58% !important;
+                        }
+                    }
+                }
+                .col-lg-12 {
+                    .list {
+                        ul {
+                            li {
+                                margin-right: 25px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    #menuPages {
+        .container {
+            .row {
+                .col-lg-7 {
+                    .menuList {
+                        padding-top: 40px !important;
+                        ul {
+                            li {
+                                display: block !important;
+                                padding: 0px 25px !important;
+                                margin-bottom: 20px !important;
+                                .listItems {
+                                    margin-left: 5px !important;
+                                    height: 45px !important;
+                                    a {
+                                        h1 {
+                                            font-size: 16px !important;
+                                        }
+                                        p {
+                                            font-size: 12px !important;
+                                            width: 100% !important;
+                                        }
+                                        .dots {
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-lg-5 {
+                    .menuImage {
+                        background-size: contain;
+                        min-height: 374px;
+                    }
+                    .menuImage2 {
+                        background-size: contain;
+                        min-height: 374px;
+                    }
+                    .menuImage3 {
+                        background-size: contain;
+                        min-height: 374px;
+                    }
+                }
+            }
+        }
+    }
+    #menuList {
+        .container {
+            .row {
+                margin-bottom: 0px !important;
+                .col-lg-6 {
+                    .listItem {
+                        margin-bottom: 30px !important;
+                        .image {
+                            .overlay {
+                                .cartIcon {
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-lg-12 {
+                    .list {
+                        padding-bottom: 50px !important;
+                    }
+                }
+            }
+        }
+    }
+}

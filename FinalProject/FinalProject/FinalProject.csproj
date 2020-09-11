@@ -1,0 +1,1954 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE3139DE-D581-409D-B0FF-09AFD0D60D8E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinalProject</RootNamespace>
+    <AssemblyName>FinalProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\AdminPanel\AdminPanelAreaRegistration.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\AccordionController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\AddressController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\AdminController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\BlogCategoryController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\BlogController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\GaleryController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\HomeController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\InstaFeedController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\MenuCategoryController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\MenuController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\MessageController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\OrderController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\PositionController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\ReservationController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\ReviewsController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\SliderController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\TagController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\TeamController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\UserController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\WeAreVincentController.cs" />
+    <Compile Include="Areas\AdminPanel\Filter\Logout.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\BlogsController.cs" />
+    <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\TeamController.cs" />
+    <Compile Include="DAL\VincentContext.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008060457254_init.cs" />
+    <Compile Include="Migrations\202008060457254_init.designer.cs">
+      <DependentUpon>202008060457254_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008080759432_update.cs" />
+    <Compile Include="Migrations\202008080759432_update.designer.cs">
+      <DependentUpon>202008080759432_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008081546109_updateMenu.cs" />
+    <Compile Include="Migrations\202008081546109_updateMenu.designer.cs">
+      <DependentUpon>202008081546109_updateMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008090542425_correctRel.cs" />
+    <Compile Include="Migrations\202008090542425_correctRel.designer.cs">
+      <DependentUpon>202008090542425_correctRel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008090544443_correctMenu.cs" />
+    <Compile Include="Migrations\202008090544443_correctMenu.designer.cs">
+      <DependentUpon>202008090544443_correctMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008090554572_menu.cs" />
+    <Compile Include="Migrations\202008090554572_menu.designer.cs">
+      <DependentUpon>202008090554572_menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008091615228_blog.cs" />
+    <Compile Include="Migrations\202008091615228_blog.designer.cs">
+      <DependentUpon>202008091615228_blog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008101105114_foreignKey.cs" />
+    <Compile Include="Migrations\202008101105114_foreignKey.designer.cs">
+      <DependentUpon>202008101105114_foreignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008110540495_removeRelation.cs" />
+    <Compile Include="Migrations\202008110540495_removeRelation.designer.cs">
+      <DependentUpon>202008110540495_removeRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008111221215_userpassword.cs" />
+    <Compile Include="Migrations\202008111221215_userpassword.designer.cs">
+      <DependentUpon>202008111221215_userpassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008120614557_listMessage.cs" />
+    <Compile Include="Migrations\202008120614557_listMessage.designer.cs">
+      <DependentUpon>202008120614557_listMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008160700482_changeType.cs" />
+    <Compile Include="Migrations\202008160700482_changeType.designer.cs">
+      <DependentUpon>202008160700482_changeType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008301340084_changePass.cs" />
+    <Compile Include="Migrations\202008301340084_changePass.designer.cs">
+      <DependentUpon>202008301340084_changePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008301352273_changePassword.cs" />
+    <Compile Include="Migrations\202008301352273_changePassword.designer.cs">
+      <DependentUpon>202008301352273_changePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008301754089_menuCount.cs" />
+    <Compile Include="Migrations\202008301754089_menuCount.designer.cs">
+      <DependentUpon>202008301754089_menuCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008310735447_removeCount.cs" />
+    <Compile Include="Migrations\202008310735447_removeCount.designer.cs">
+      <DependentUpon>202008310735447_removeCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009010843347_addQuantity.cs" />
+    <Compile Include="Migrations\202009010843347_addQuantity.designer.cs">
+      <DependentUpon>202009010843347_addQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Accordion.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\BlogCategory.cs" />
+    <Compile Include="Models\Galery.cs" />
+    <Compile Include="Models\InstaFeed.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\MenuCategory.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\Review.cs" />
+    <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\Slider.cs" />
+    <Compile Include="Models\Subscribe.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\WeAreVincent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\vmAbout.cs" />
+    <Compile Include="ViewModels\vmAdminIndex.cs" />
+    <Compile Include="ViewModels\vmBlog.cs" />
+    <Compile Include="ViewModels\vmCard.cs" />
+    <Compile Include="ViewModels\vmCheckout.cs" />
+    <Compile Include="ViewModels\vmHome.cs" />
+    <Compile Include="ViewModels\vmLogin.cs" />
+    <Compile Include="ViewModels\vmMenuDetails.cs" />
+    <Compile Include="ViewModels\vmOrderInfo.cs" />
+    <Compile Include="ViewModels\vmShop.cs" />
+    <Compile Include="ViewModels\vmTeam.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\AdminPanel\assets\bundles\amcharts4\animated.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\amcharts4\charts.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\amcharts4\core.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\amcharts4\maps.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\amcharts4\worldLow.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\apexcharts\apexcharts.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\bootstrap-social\bootstrap-social.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\bootstrap-tagsinput\dist\bootstrap-tagsinput.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\bootstrap-tagsinput\dist\bootstrap-tagsinput.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\bootstrap-timepicker\css\bootstrap-timepicker.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\bootstrap-timepicker\js\bootstrap-timepicker.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\chartjs\chart.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\chocolat\dist\css\chocolat.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\chocolat\dist\images\close.png" />
+    <Content Include="Areas\AdminPanel\assets\bundles\chocolat\dist\images\fullscreen.png" />
+    <Content Include="Areas\AdminPanel\assets\bundles\chocolat\dist\images\left.png" />
+    <Content Include="Areas\AdminPanel\assets\bundles\chocolat\dist\images\loader.gif" />
+    <Content Include="Areas\AdminPanel\assets\bundles\chocolat\dist\images\right.png" />
+    <Content Include="Areas\AdminPanel\assets\bundles\chocolat\dist\js\jquery.chocolat.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\ckeditor\ckeditor.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\cleave-js\dist\addons\cleave-phone.us.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\cleave-js\dist\cleave.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\codemirror\lib\codemirror.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\codemirror\lib\codemirror.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\codemirror\mode\javascript\javascript.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\codemirror\theme\duotone-dark.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\DataTables-1.10.16\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\DataTables-1.10.16\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\datatables.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\datatables.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\export-tables\buttons.flash.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\export-tables\buttons.print.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\export-tables\dataTables.buttons.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\export-tables\jszip.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\export-tables\pdfmake.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\export-tables\vfs_fonts.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\datatables\Select-1.2.4\css\select.bootstrap4.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\dropzonejs\dropzone.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\dropzonejs\min\dropzone.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\echart\echarts.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\editable-table\mindmup-editabletable.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\css\flag-icon.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ad.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ae.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\af.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ag.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ai.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\al.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\am.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ao.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\aq.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ar.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\as.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\at.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\au.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\aw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ax.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\az.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ba.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bb.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bd.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\be.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bi.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bj.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bo.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bq.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\br.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bs.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\by.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\bz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ca.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cd.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ch.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ci.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ck.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\co.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cx.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cy.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\cz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\de.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\dj.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\dk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\dm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\do.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\dz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ec.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ee.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\eg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\eh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\er.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\es-ct.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\es.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\et.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\eu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\fi.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\fj.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\fk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\fm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\fo.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\fr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ga.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gb-eng.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gb-nir.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gb-sct.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gb-wls.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gb.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gd.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ge.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gi.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gp.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gq.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gs.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\gy.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\hk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\hm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\hn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\hr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ht.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\hu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\id.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ie.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\il.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\im.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\in.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\io.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\iq.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ir.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\is.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\it.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\je.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\jm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\jo.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\jp.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ke.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\kg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\kh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ki.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\km.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\kn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\kp.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\kr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\kw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ky.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\kz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\la.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\lb.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\lc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\li.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\lk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\lr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ls.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\lt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\lu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\lv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ly.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ma.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\md.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\me.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ml.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mo.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mp.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mq.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ms.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mx.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\my.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\mz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\na.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\nc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ne.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\nf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ng.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ni.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\nl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\no.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\np.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\nr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\nu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\nz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\om.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pa.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pe.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ph.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ps.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\pw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\py.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\qa.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\re.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ro.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\rs.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ru.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\rw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sa.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sb.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sd.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\se.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\si.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sj.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\so.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ss.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\st.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sx.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sy.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\sz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\td.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\th.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tj.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\to.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\tz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ua.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ug.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\um.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\un.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\us.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\uy.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\uz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\va.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\vc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ve.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\vg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\vi.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\vn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\vu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\wf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ws.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\ye.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\yt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\za.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\zm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\1x1\zw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ad.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ae.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\af.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ag.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ai.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\al.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\am.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ao.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\aq.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ar.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\as.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\at.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\au.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\aw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ax.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\az.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ba.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bb.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bd.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\be.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bi.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bj.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bo.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bq.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\br.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bs.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\by.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\bz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ca.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cd.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ch.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ci.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ck.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\co.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cx.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cy.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\cz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\de.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\dj.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\dk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\dm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\do.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\dz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ec.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ee.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\eg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\eh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\er.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\es-ct.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\es.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\et.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\eu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\fi.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\fj.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\fk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\fm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\fo.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\fr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ga.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gb-eng.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gb-nir.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gb-sct.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gb-wls.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gb.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gd.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ge.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gi.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gp.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gq.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gs.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\gy.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\hk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\hm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\hn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\hr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ht.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\hu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\id.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ie.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\il.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\im.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\in.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\io.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\iq.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ir.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\is.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\it.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\je.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\jm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\jo.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\jp.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ke.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\kg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\kh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ki.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\km.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\kn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\kp.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\kr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\kw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ky.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\kz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\la.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\lb.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\lc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\li.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\lk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\lr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ls.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\lt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\lu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\lv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ly.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ma.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\md.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\me.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ml.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mo.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mp.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mq.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ms.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mx.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\my.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\mz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\na.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\nc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ne.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\nf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ng.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ni.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\nl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\no.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\np.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\nr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\nu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\nz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\om.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pa.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pe.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ph.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ps.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\pw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\py.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\qa.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\re.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ro.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\rs.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ru.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\rw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sa.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sb.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sd.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\se.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sh.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\si.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sj.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\so.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ss.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\st.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sx.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sy.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\sz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\td.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\th.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tj.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tk.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tl.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\to.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tr.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tv.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\tz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ua.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ug.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\um.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\un.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\us.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\uy.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\uz.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\va.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\vc.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ve.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\vg.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\vi.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\vn.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\vu.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\wf.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ws.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\ye.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\yt.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\za.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\zm.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\flag-icon-css\flags\4x3\zw.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\fullcalendar\fullcalendar.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\gmaps.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\ionicons\css\ionicons.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\ionicons\fonts\ionicons28b5.svg" />
+    <Content Include="Areas\AdminPanel\assets\bundles\izitoast\css\iziToast.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\izitoast\js\iziToast.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jquery-pwstrength\jquery.pwstrength.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jquery-selectric\jquery.selectric.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jquery-selectric\selectric.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jquery-steps\jquery.steps.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jquery.sparkline.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jqvmap\dist\jquery.vmap.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jqvmap\dist\jqvmap.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jqvmap\dist\maps\jquery.vmap.indonesia.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\jqvmap\dist\maps\jquery.vmap.world.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\morris\morris.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\morris\morris.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\morris\raphael-min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\owlcarousel2\dist\assets\owl.carousel.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\owlcarousel2\dist\assets\owl.theme.default.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\owlcarousel2\dist\assets\owl.video.play.png" />
+    <Content Include="Areas\AdminPanel\assets\bundles\owlcarousel2\dist\owl.carousel.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\pretty-checkbox\pretty-checkbox.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\prism\prism.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\prism\prism.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\select2\dist\css\select2.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\select2\dist\js\select2.full.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\summernote\summernote-bs4.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\summernote\summernote-bs4.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\sweetalert\sweetalert.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\upload-preview\assets\js\jquery.uploadPreview.min.js" />
+    <Content Include="Areas\AdminPanel\assets\bundles\weather-icon\css\weather-icons-wind.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\weather-icon\css\weather-icons.min.css" />
+    <Content Include="Areas\AdminPanel\assets\bundles\weather-icon\font\weathericons-regular-webfont.svg" />
+    <Content Include="Areas\AdminPanel\assets\css\app.min.css" />
+    <Content Include="Areas\AdminPanel\assets\css\components.css" />
+    <Content Include="Areas\AdminPanel\assets\css\MaterialIcons-Regular.html" />
+    <Content Include="Areas\AdminPanel\assets\css\style.css" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-300.svg" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-500.svg" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-600.svg" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-700.svg" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-regular.svg" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-brands-400.svg" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-regular-400.svg" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-solid-900.svg" />
+    <Content Include="Areas\AdminPanel\assets\img\auth-background-image.jpg" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img01.png" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img02.png" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img04.png" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img07.png" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img09.png" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img10.png" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img11.png" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img12.png" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img13.png" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img14.png" />
+    <Content Include="Areas\AdminPanel\assets\img\blog\img15.png" />
+    <Content Include="Areas\AdminPanel\assets\img\browsers\chrome.png" />
+    <Content Include="Areas\AdminPanel\assets\img\browsers\firefox.png" />
+    <Content Include="Areas\AdminPanel\assets\img\browsers\internet-explorer.png" />
+    <Content Include="Areas\AdminPanel\assets\img\browsers\opera.png" />
+    <Content Include="Areas\AdminPanel\assets\img\browsers\safari.png" />
+    <Content Include="Areas\AdminPanel\assets\img\cards\americanexpress.png" />
+    <Content Include="Areas\AdminPanel\assets\img\cards\dinersclub.png" />
+    <Content Include="Areas\AdminPanel\assets\img\cards\discover.png" />
+    <Content Include="Areas\AdminPanel\assets\img\cards\jcb.png" />
+    <Content Include="Areas\AdminPanel\assets\img\cards\mastercard.png" />
+    <Content Include="Areas\AdminPanel\assets\img\cards\paypal.png" />
+    <Content Include="Areas\AdminPanel\assets\img\cards\visa.png" />
+    <Content Include="Areas\AdminPanel\assets\img\favicon.ico" />
+    <Content Include="Areas\AdminPanel\assets\img\image-64.png" />
+    <Content Include="Areas\AdminPanel\assets\img\loading.gif" />
+    <Content Include="Areas\AdminPanel\assets\img\logo.png" />
+    <Content Include="Areas\AdminPanel\assets\img\posts\post11.png" />
+    <Content Include="Areas\AdminPanel\assets\img\posts\post12.png" />
+    <Content Include="Areas\AdminPanel\assets\img\posts\post13.png" />
+    <Content Include="Areas\AdminPanel\assets\img\posts\post4.png" />
+    <Content Include="Areas\AdminPanel\assets\img\posts\post5.png" />
+    <Content Include="Areas\AdminPanel\assets\img\posts\post6.png" />
+    <Content Include="Areas\AdminPanel\assets\img\posts\post7.png" />
+    <Content Include="Areas\AdminPanel\assets\img\posts\post8.png" />
+    <Content Include="Areas\AdminPanel\assets\img\posts\post9.png" />
+    <Content Include="Areas\AdminPanel\assets\img\spinner-white.svg" />
+    <Content Include="Areas\AdminPanel\assets\img\spinner.svg" />
+    <Content Include="Areas\AdminPanel\assets\img\typing.svg" />
+    <Content Include="Areas\AdminPanel\assets\img\user.png" />
+    <Content Include="Areas\AdminPanel\assets\img\users\user-1.png" />
+    <Content Include="Areas\AdminPanel\assets\img\users\user-2.png" />
+    <Content Include="Areas\AdminPanel\assets\img\users\user-3.png" />
+    <Content Include="Areas\AdminPanel\assets\img\users\user-4.png" />
+    <Content Include="Areas\AdminPanel\assets\img\users\user-5.png" />
+    <Content Include="Areas\AdminPanel\assets\img\users\user-6.png" />
+    <Content Include="Areas\AdminPanel\assets\img\users\user-7.png" />
+    <Content Include="Areas\AdminPanel\assets\img\users\user-8.png" />
+    <Content Include="Areas\AdminPanel\assets\img\users\user-9.png" />
+    <Content Include="Areas\AdminPanel\assets\js\app.min.js" />
+    <Content Include="Areas\AdminPanel\assets\js\main.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\auth-register.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\calendar.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\chart-amchart.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\chart-apexcharts.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\chart-chartjs.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\chart-echarts.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\chart-morris.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\chat.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\ckeditor.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\contact.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\create-post.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\datatables.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\editable-table.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\form-wizard.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\forms-advanced-forms.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\gmaps-advanced-route.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\gmaps-draggable-marker.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\gmaps-geocoding.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\gmaps-geolocation.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\gmaps-marker.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\gmaps-multiple-marker.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\gmaps-route.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\gmaps-simple.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\index.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\index2.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\ion-icons.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\multiple-upload.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\portfolio.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\posts.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\sparkline.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\sweetalert.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\toastr.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\vector-map.js" />
+    <Content Include="Areas\AdminPanel\assets\js\page\widget.js" />
+    <Content Include="Areas\AdminPanel\assets\js\scripts.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Public\css\style.css" />
+    <Content Include="Public\img\19.jpg" />
+    <Content Include="Public\img\about_1-1.jpg" />
+    <Content Include="Public\img\about_2-1.jpg" />
+    <Content Include="Public\img\about_3-1.jpg" />
+    <Content Include="Public\img\add_to_cart.png" />
+    <Content Include="Public\img\back_1.jpg" />
+    <Content Include="Public\img\back_2.png" />
+    <Content Include="Public\img\back_3.jpg" />
+    <Content Include="Public\img\back_4.jpg" />
+    <Content Include="Public\img\bg_title %281%29.jpg" />
+    <Content Include="Public\img\bg_title.jpg" />
+    <Content Include="Public\img\blog1.jpg" />
+    <Content Include="Public\img\blog2.jpg" />
+    <Content Include="Public\img\blog3.jpg" />
+    <Content Include="Public\img\blog4.jpg" />
+    <Content Include="Public\img\blog5.jpg" />
+    <Content Include="Public\img\blog6.jpg" />
+    <Content Include="Public\img\blog7.jpg" />
+    <Content Include="Public\img\blog8.jpg" />
+    <Content Include="Public\img\blog9.jpg" />
+    <Content Include="Public\img\cart-vincent.png" />
+    <Content Include="Public\img\comment1.png" />
+    <Content Include="Public\img\comment2.jpeg" />
+    <Content Include="Public\img\comment3.png" />
+    <Content Include="Public\img\detail1.jpg" />
+    <Content Include="Public\img\download %281%29.png" />
+    <Content Include="Public\img\download.jpg" />
+    <Content Include="Public\img\footerLogoMastercard.jpg" />
+    <Content Include="Public\img\gal_1.jpg" />
+    <Content Include="Public\img\gal_2.jpg" />
+    <Content Include="Public\img\gal_3.jpg" />
+    <Content Include="Public\img\gal_4.jpg" />
+    <Content Include="Public\img\gal_5.jpg" />
+    <Content Include="Public\img\gal_6.jpg" />
+    <Content Include="Public\img\gal_7.jpg" />
+    <Content Include="Public\img\gal_8.jpg" />
+    <Content Include="Public\img\girl.jpg" />
+    <Content Include="Public\img\icon_1.png" />
+    <Content Include="Public\img\icon_2.png" />
+    <Content Include="Public\img\icon_3.png" />
+    <Content Include="Public\img\icon_4.png" />
+    <Content Include="Public\img\icon_5.png" />
+    <Content Include="Public\img\icon_6.png" />
+    <Content Include="Public\img\icon_cart.png" />
+    <Content Include="Public\img\icon_phone.png" />
+    <Content Include="Public\img\img2.jpg" />
+    <Content Include="Public\img\img_1.jpg" />
+    <Content Include="Public\img\img_5.jpg" />
+    <Content Include="Public\img\img_6.jpg" />
+    <Content Include="Public\img\insta1.jpg" />
+    <Content Include="Public\img\insta2_files\101358229_575778849776985_7734631652959494277_n.jpg" />
+    <Content Include="Public\img\insta2_files\101828975_110937883826657_4353640609279739389_n.jpg" />
+    <Content Include="Public\img\insta2_files\101842261_255298535692378_3644135998238434158_n.jpg" />
+    <Content Include="Public\img\insta2_files\101867551_593128647985024_6925282248351605187_n.jpg" />
+    <Content Include="Public\img\insta2_files\102820037_2628419737427601_5961142031330379709_n.jpg" />
+    <Content Include="Public\img\insta2_files\102847855_266492737767044_1057898731665235554_n.jpg" />
+    <Content Include="Public\img\insta2_files\102957502_147890476814262_3843486859625620015_n.jpg" />
+    <Content Include="Public\img\insta2_files\104245338_2611814725739585_8717494630770390714_n.jpg" />
+    <Content Include="Public\img\insta2_files\104382275_154280359506004_5664952491240983880_n.jpg" />
+    <Content Include="Public\img\insta2_files\104431499_376644863311852_8133175118331484960_n.jpg" />
+    <Content Include="Public\img\insta2_files\104686371_694878668011877_7189555976169265159_n.jpg" />
+    <Content Include="Public\img\insta2_files\104707823_2460804304210064_2089493603675076536_n.jpg" />
+    <Content Include="Public\img\insta2_files\105489782_323428148682585_4719438269111565652_n.jpg" />
+    <Content Include="Public\img\insta2_files\105968197_904218476770769_4425924294680587870_n.jpg" />
+    <Content Include="Public\img\insta2_files\106073570_775806963226377_3088699279207798861_n.jpg" />
+    <Content Include="Public\img\insta2_files\106391807_624930931563486_8809982219922865066_n.jpg" />
+    <Content Include="Public\img\insta2_files\106503951_700378940743115_8271191967571161915_n.jpg" />
+    <Content Include="Public\img\insta2_files\106929550_567517860604019_3104841726004776174_n.jpg" />
+    <Content Include="Public\img\insta2_files\10735443_587022824756571_1487888322_a.jpg" />
+    <Content Include="Public\img\insta2_files\107460818_619067965396063_9065668465051757364_n%281%29.jpg" />
+    <Content Include="Public\img\insta2_files\107460818_619067965396063_9065668465051757364_n.jpg" />
+    <Content Include="Public\img\insta2_files\107569418_2622504238009670_6313664646623100863_n.jpg" />
+    <Content Include="Public\img\insta2_files\109014054_977143312712013_1857374265298552067_n.jpg" />
+    <Content Include="Public\img\insta2_files\109728766_905485609943959_7708169582348933035_n.jpg" />
+    <Content Include="Public\img\insta2_files\109809306_589222341766658_2717933243176823755_n.jpg" />
+    <Content Include="Public\img\insta2_files\110255414_284997019441434_6248857182431813100_n.jpg" />
+    <Content Include="Public\img\insta2_files\111013569_1433825413672058_2121525089463992436_n.jpg" />
+    <Content Include="Public\img\insta2_files\12568840_926013724161023_354071944_a.jpg" />
+    <Content Include="Public\img\insta2_files\21147673_113360556047579_2053454994140561408_n.jpg" />
+    <Content Include="Public\img\insta2_files\22326130afec.css" />
+    <Content Include="Public\img\insta2_files\26dfdf9d3c11.css" />
+    <Content Include="Public\img\insta2_files\285f5fd5783f.css" />
+    <Content Include="Public\img\insta2_files\2c4993169770.css" />
+    <Content Include="Public\img\insta2_files\3c54a7251a1a.css" />
+    <Content Include="Public\img\insta2_files\44884218_345707102882519_2446069589734326272_n.jpg" />
+    <Content Include="Public\img\insta2_files\52127393_559209607920736_8215567850768837979_n.jpg" />
+    <Content Include="Public\img\insta2_files\53117278_326370174588084_8746245827317613604_n.jpg" />
+    <Content Include="Public\img\insta2_files\53275078_362485411022212_6240543834427145511_n.jpg" />
+    <Content Include="Public\img\insta2_files\53531761_825157334497897_865622690139976113_n.jpg" />
+    <Content Include="Public\img\insta2_files\53618424_127681044971856_2889970628092821608_n.jpg" />
+    <Content Include="Public\img\insta2_files\53677177_365790017597293_7649121743484380574_n.jpg" />
+    <Content Include="Public\img\insta2_files\54511076_571522409994180_4501645060768530432_n.jpg" />
+    <Content Include="Public\img\insta2_files\5e5cef40869a.css" />
+    <Content Include="Public\img\insta2_files\70343971_389498168670235_8499944551723565056_n.jpg" />
+    <Content Include="Public\img\insta2_files\735145cfe0a4.png" />
+    <Content Include="Public\img\insta2_files\75196171_2377444549191596_5993771606260842496_n.jpg" />
+    <Content Include="Public\img\insta2_files\80858286_515977415681707_1790877018833813504_n%281%29.jpg" />
+    <Content Include="Public\img\insta2_files\80858286_515977415681707_1790877018833813504_n.jpg" />
+    <Content Include="Public\img\insta2_files\81954762_2673120836057853_3902553395638042624_n.jpg" />
+    <Content Include="Public\img\insta2_files\84269538_1792384854237405_6725323411536407304_n.jpg" />
+    <Content Include="Public\img\insta2_files\88261057_136397177697860_3894271964251947008_n.jpg" />
+    <Content Include="Public\img\insta2_files\9293afc95a2a.css" />
+    <Content Include="Public\img\insta2_files\95698005_236710784098263_4548093469854905270_n.jpg" />
+    <Content Include="Public\img\insta2_files\96008801_277667993597027_3943425465703253870_n.jpg" />
+    <Content Include="Public\img\insta2_files\96084853_1187442481587304_7137300807401758393_n.jpg" />
+    <Content Include="Public\img\insta2_files\96254183_153920496143515_2163981829751677328_n.jpg" />
+    <Content Include="Public\img\insta2_files\96930640_702106867252522_6177378130667726885_n.jpg" />
+    <Content Include="Public\img\insta2_files\97219538_1022664251462076_2216332166221735818_n.jpg" />
+    <Content Include="Public\img\insta2_files\bf36279c7788.css" />
+    <Content Include="Public\img\insta2_files\e1ccedbdafd4.css" />
+    <Content Include="Public\img\insta2_files\e36e97b666f7.css" />
+    <Content Include="Public\img\insta2_files\e5f471a37be6.css" />
+    <Content Include="Public\img\insta2_files\f80cd1196a8b.css" />
+    <Content Include="Public\img\insta3.html" />
+    <Content Include="Public\img\insta3_files\101358229_575778849776985_7734631652959494277_n.jpg" />
+    <Content Include="Public\img\insta3_files\101828975_110937883826657_4353640609279739389_n.jpg" />
+    <Content Include="Public\img\insta3_files\101842261_255298535692378_3644135998238434158_n.jpg" />
+    <Content Include="Public\img\insta3_files\101867551_593128647985024_6925282248351605187_n.jpg" />
+    <Content Include="Public\img\insta3_files\102820037_2628419737427601_5961142031330379709_n.jpg" />
+    <Content Include="Public\img\insta3_files\102847855_266492737767044_1057898731665235554_n.jpg" />
+    <Content Include="Public\img\insta3_files\102957502_147890476814262_3843486859625620015_n.jpg" />
+    <Content Include="Public\img\insta3_files\104245338_2611814725739585_8717494630770390714_n.jpg" />
+    <Content Include="Public\img\insta3_files\104382275_154280359506004_5664952491240983880_n.jpg" />
+    <Content Include="Public\img\insta3_files\104431499_376644863311852_8133175118331484960_n.jpg" />
+    <Content Include="Public\img\insta3_files\104686371_694878668011877_7189555976169265159_n.jpg" />
+    <Content Include="Public\img\insta3_files\104707823_2460804304210064_2089493603675076536_n.jpg" />
+    <Content Include="Public\img\insta3_files\105489782_323428148682585_4719438269111565652_n.jpg" />
+    <Content Include="Public\img\insta3_files\105968197_904218476770769_4425924294680587870_n.jpg" />
+    <Content Include="Public\img\insta3_files\106073570_775806963226377_3088699279207798861_n%281%29.jpg" />
+    <Content Include="Public\img\insta3_files\106073570_775806963226377_3088699279207798861_n.jpg" />
+    <Content Include="Public\img\insta3_files\106391807_624930931563486_8809982219922865066_n.jpg" />
+    <Content Include="Public\img\insta3_files\106503951_700378940743115_8271191967571161915_n.jpg" />
+    <Content Include="Public\img\insta3_files\106929550_567517860604019_3104841726004776174_n.jpg" />
+    <Content Include="Public\img\insta3_files\10735443_587022824756571_1487888322_a.jpg" />
+    <Content Include="Public\img\insta3_files\107460818_619067965396063_9065668465051757364_n.jpg" />
+    <Content Include="Public\img\insta3_files\107569418_2622504238009670_6313664646623100863_n.jpg" />
+    <Content Include="Public\img\insta3_files\109014054_977143312712013_1857374265298552067_n.jpg" />
+    <Content Include="Public\img\insta3_files\109728766_905485609943959_7708169582348933035_n.jpg" />
+    <Content Include="Public\img\insta3_files\109809306_589222341766658_2717933243176823755_n.jpg" />
+    <Content Include="Public\img\insta3_files\110255414_284997019441434_6248857182431813100_n.jpg" />
+    <Content Include="Public\img\insta3_files\111013569_1433825413672058_2121525089463992436_n.jpg" />
+    <Content Include="Public\img\insta3_files\12568840_926013724161023_354071944_a.jpg" />
+    <Content Include="Public\img\insta3_files\12822317_887658117999140_1049921304_a.jpg" />
+    <Content Include="Public\img\insta3_files\21147673_113360556047579_2053454994140561408_n.jpg" />
+    <Content Include="Public\img\insta3_files\22326130afec.css" />
+    <Content Include="Public\img\insta3_files\26dfdf9d3c11.css" />
+    <Content Include="Public\img\insta3_files\285f5fd5783f.css" />
+    <Content Include="Public\img\insta3_files\2c4993169770.css" />
+    <Content Include="Public\img\insta3_files\3c54a7251a1a.css" />
+    <Content Include="Public\img\insta3_files\40026683_1817703461616991_5614394542254981120_n.jpg" />
+    <Content Include="Public\img\insta3_files\44884218_345707102882519_2446069589734326272_n.jpg" />
+    <Content Include="Public\img\insta3_files\52127393_559209607920736_8215567850768837979_n.jpg" />
+    <Content Include="Public\img\insta3_files\53117278_326370174588084_8746245827317613604_n.jpg" />
+    <Content Include="Public\img\insta3_files\53275078_362485411022212_6240543834427145511_n.jpg" />
+    <Content Include="Public\img\insta3_files\53531761_825157334497897_865622690139976113_n.jpg" />
+    <Content Include="Public\img\insta3_files\53618424_127681044971856_2889970628092821608_n.jpg" />
+    <Content Include="Public\img\insta3_files\53677177_365790017597293_7649121743484380574_n.jpg" />
+    <Content Include="Public\img\insta3_files\54511076_571522409994180_4501645060768530432_n.jpg" />
+    <Content Include="Public\img\insta3_files\56544824_2198764166883779_6307228528660185088_n.jpg" />
+    <Content Include="Public\img\insta3_files\5e5cef40869a.css" />
+    <Content Include="Public\img\insta3_files\735145cfe0a4.png" />
+    <Content Include="Public\img\insta3_files\75196171_2377444549191596_5993771606260842496_n.jpg" />
+    <Content Include="Public\img\insta3_files\80858286_515977415681707_1790877018833813504_n%281%29.jpg" />
+    <Content Include="Public\img\insta3_files\80858286_515977415681707_1790877018833813504_n.jpg" />
+    <Content Include="Public\img\insta3_files\84258581_616837055778653_5316620383699337216_n.jpg" />
+    <Content Include="Public\img\insta3_files\84269538_1792384854237405_6725323411536407304_n.jpg" />
+    <Content Include="Public\img\insta3_files\88261057_136397177697860_3894271964251947008_n.jpg" />
+    <Content Include="Public\img\insta3_files\92827277_3646889512004067_5071942625196507136_n.jpg" />
+    <Content Include="Public\img\insta3_files\9293afc95a2a.css" />
+    <Content Include="Public\img\insta3_files\95698005_236710784098263_4548093469854905270_n.jpg" />
+    <Content Include="Public\img\insta3_files\96008801_277667993597027_3943425465703253870_n.jpg" />
+    <Content Include="Public\img\insta3_files\96084853_1187442481587304_7137300807401758393_n.jpg" />
+    <Content Include="Public\img\insta3_files\96254183_153920496143515_2163981829751677328_n.jpg" />
+    <Content Include="Public\img\insta3_files\96930640_702106867252522_6177378130667726885_n.jpg" />
+    <Content Include="Public\img\insta3_files\97145508_266552251135491_7819841350894878720_n.jpg" />
+    <Content Include="Public\img\insta3_files\97219538_1022664251462076_2216332166221735818_n.jpg" />
+    <Content Include="Public\img\insta3_files\bf36279c7788.css" />
+    <Content Include="Public\img\insta3_files\e1ccedbdafd4.css" />
+    <Content Include="Public\img\insta3_files\e36e97b666f7.css" />
+    <Content Include="Public\img\insta3_files\e5f471a37be6.css" />
+    <Content Include="Public\img\insta3_files\f80cd1196a8b.css" />
+    <Content Include="Public\img\insta4_files\100813734_241283263976293_7905029788250661561_n.jpg" />
+    <Content Include="Public\img\insta4_files\100941530_605748856705646_8373936299129784275_n.jpg" />
+    <Content Include="Public\img\insta4_files\101000560_258635215547559_1946255352199922606_n.jpg" />
+    <Content Include="Public\img\insta4_files\101009364_560777954876235_8383433282645322107_n.jpg" />
+    <Content Include="Public\img\insta4_files\101155294_557771644815745_6776763414651969581_n.jpg" />
+    <Content Include="Public\img\insta4_files\101358229_575778849776985_7734631652959494277_n.jpg" />
+    <Content Include="Public\img\insta4_files\101432205_276819573472482_7420567403032255830_n.jpg" />
+    <Content Include="Public\img\insta4_files\101481312_609174973288041_8230607789024266171_n.jpg" />
+    <Content Include="Public\img\insta4_files\101513746_255084575699196_4771032489377792404_n.jpg" />
+    <Content Include="Public\img\insta4_files\101828975_110937883826657_4353640609279739389_n.jpg" />
+    <Content Include="Public\img\insta4_files\101842261_255298535692378_3644135998238434158_n.jpg" />
+    <Content Include="Public\img\insta4_files\101867551_593128647985024_6925282248351605187_n.jpg" />
+    <Content Include="Public\img\insta4_files\102820037_2628419737427601_5961142031330379709_n.jpg" />
+    <Content Include="Public\img\insta4_files\102847855_266492737767044_1057898731665235554_n.jpg" />
+    <Content Include="Public\img\insta4_files\102957502_147890476814262_3843486859625620015_n.jpg" />
+    <Content Include="Public\img\insta4_files\104245338_2611814725739585_8717494630770390714_n.jpg" />
+    <Content Include="Public\img\insta4_files\104382275_154280359506004_5664952491240983880_n.jpg" />
+    <Content Include="Public\img\insta4_files\104431499_376644863311852_8133175118331484960_n.jpg" />
+    <Content Include="Public\img\insta4_files\104686371_694878668011877_7189555976169265159_n%281%29.jpg" />
+    <Content Include="Public\img\insta4_files\104686371_694878668011877_7189555976169265159_n.jpg" />
+    <Content Include="Public\img\insta4_files\104707823_2460804304210064_2089493603675076536_n.jpg" />
+    <Content Include="Public\img\insta4_files\105489782_323428148682585_4719438269111565652_n.jpg" />
+    <Content Include="Public\img\insta4_files\105968197_904218476770769_4425924294680587870_n.jpg" />
+    <Content Include="Public\img\insta4_files\106073570_775806963226377_3088699279207798861_n.jpg" />
+    <Content Include="Public\img\insta4_files\106391807_624930931563486_8809982219922865066_n.jpg" />
+    <Content Include="Public\img\insta4_files\106503951_700378940743115_8271191967571161915_n.jpg" />
+    <Content Include="Public\img\insta4_files\106929550_567517860604019_3104841726004776174_n.jpg" />
+    <Content Include="Public\img\insta4_files\10735443_587022824756571_1487888322_a.jpg" />
+    <Content Include="Public\img\insta4_files\107460818_619067965396063_9065668465051757364_n.jpg" />
+    <Content Include="Public\img\insta4_files\107569418_2622504238009670_6313664646623100863_n.jpg" />
+    <Content Include="Public\img\insta4_files\109014054_977143312712013_1857374265298552067_n.jpg" />
+    <Content Include="Public\img\insta4_files\109728766_905485609943959_7708169582348933035_n.jpg" />
+    <Content Include="Public\img\insta4_files\109809306_589222341766658_2717933243176823755_n.jpg" />
+    <Content Include="Public\img\insta4_files\110255414_284997019441434_6248857182431813100_n.jpg" />
+    <Content Include="Public\img\insta4_files\111013569_1433825413672058_2121525089463992436_n.jpg" />
+    <Content Include="Public\img\insta4_files\12424363_888643491249879_1214548583_a.jpg" />
+    <Content Include="Public\img\insta4_files\12568840_926013724161023_354071944_a.jpg" />
+    <Content Include="Public\img\insta4_files\21147673_113360556047579_2053454994140561408_n.jpg" />
+    <Content Include="Public\img\insta4_files\22326130afec.css" />
+    <Content Include="Public\img\insta4_files\26dfdf9d3c11.css" />
+    <Content Include="Public\img\insta4_files\285f5fd5783f.css" />
+    <Content Include="Public\img\insta4_files\2c4993169770.css" />
+    <Content Include="Public\img\insta4_files\3c54a7251a1a.css" />
+    <Content Include="Public\img\insta4_files\44884218_345707102882519_2446069589734326272_n.jpg" />
+    <Content Include="Public\img\insta4_files\52127393_559209607920736_8215567850768837979_n.jpg" />
+    <Content Include="Public\img\insta4_files\53117278_326370174588084_8746245827317613604_n.jpg" />
+    <Content Include="Public\img\insta4_files\53275078_362485411022212_6240543834427145511_n.jpg" />
+    <Content Include="Public\img\insta4_files\53531761_825157334497897_865622690139976113_n.jpg" />
+    <Content Include="Public\img\insta4_files\53618424_127681044971856_2889970628092821608_n.jpg" />
+    <Content Include="Public\img\insta4_files\53677177_365790017597293_7649121743484380574_n.jpg" />
+    <Content Include="Public\img\insta4_files\54511076_571522409994180_4501645060768530432_n.jpg" />
+    <Content Include="Public\img\insta4_files\5e5cef40869a.css" />
+    <Content Include="Public\img\insta4_files\70343971_389498168670235_8499944551723565056_n.jpg" />
+    <Content Include="Public\img\insta4_files\735145cfe0a4.png" />
+    <Content Include="Public\img\insta4_files\75196171_2377444549191596_5993771606260842496_n.jpg" />
+    <Content Include="Public\img\insta4_files\79321650_1747361102061240_6243437625680592896_n.jpg" />
+    <Content Include="Public\img\insta4_files\79601741_2489399314645133_3537924605081550848_n.jpg" />
+    <Content Include="Public\img\insta4_files\80858286_515977415681707_1790877018833813504_n%281%29.jpg" />
+    <Content Include="Public\img\insta4_files\80858286_515977415681707_1790877018833813504_n.jpg" />
+    <Content Include="Public\img\insta4_files\84258581_616837055778653_5316620383699337216_n.jpg" />
+    <Content Include="Public\img\insta4_files\84269538_1792384854237405_6725323411536407304_n.jpg" />
+    <Content Include="Public\img\insta4_files\88261057_136397177697860_3894271964251947008_n.jpg" />
+    <Content Include="Public\img\insta4_files\9293afc95a2a.css" />
+    <Content Include="Public\img\insta4_files\95698005_236710784098263_4548093469854905270_n.jpg" />
+    <Content Include="Public\img\insta4_files\96008801_277667993597027_3943425465703253870_n.jpg" />
+    <Content Include="Public\img\insta4_files\96084853_1187442481587304_7137300807401758393_n.jpg" />
+    <Content Include="Public\img\insta4_files\96254183_153920496143515_2163981829751677328_n.jpg" />
+    <Content Include="Public\img\insta4_files\96930640_702106867252522_6177378130667726885_n.jpg" />
+    <Content Include="Public\img\insta4_files\97145508_266552251135491_7819841350894878720_n.jpg" />
+    <Content Include="Public\img\insta4_files\97219538_1022664251462076_2216332166221735818_n.jpg" />
+    <Content Include="Public\img\insta4_files\97882463_659457314617941_8243368805203680071_n.jpg" />
+    <Content Include="Public\img\insta4_files\98616247_577746013154030_2764185904731900700_n.jpg" />
+    <Content Include="Public\img\insta4_files\99425944_253980845829638_6055920519952438838_n.jpg" />
+    <Content Include="Public\img\insta4_files\99558350_137727674548547_6947385270553267238_n.jpg" />
+    <Content Include="Public\img\insta4_files\bf36279c7788.css" />
+    <Content Include="Public\img\insta4_files\e1ccedbdafd4.css" />
+    <Content Include="Public\img\insta4_files\e36e97b666f7.css" />
+    <Content Include="Public\img\insta4_files\e5f471a37be6.css" />
+    <Content Include="Public\img\insta4_files\f80cd1196a8b.css" />
+    <Content Include="Public\img\insta5.html" />
+    <Content Include="Public\img\insta5_files\100813734_241283263976293_7905029788250661561_n.jpg" />
+    <Content Include="Public\img\insta5_files\100894117_253927172485421_6153184050505842688_n.jpg" />
+    <Content Include="Public\img\insta5_files\100941530_605748856705646_8373936299129784275_n.jpg" />
+    <Content Include="Public\img\insta5_files\101000560_258635215547559_1946255352199922606_n.jpg" />
+    <Content Include="Public\img\insta5_files\101009364_560777954876235_8383433282645322107_n.jpg" />
+    <Content Include="Public\img\insta5_files\101155294_557771644815745_6776763414651969581_n.jpg" />
+    <Content Include="Public\img\insta5_files\101358229_575778849776985_7734631652959494277_n.jpg" />
+    <Content Include="Public\img\insta5_files\101432205_276819573472482_7420567403032255830_n%281%29.jpg" />
+    <Content Include="Public\img\insta5_files\101432205_276819573472482_7420567403032255830_n.jpg" />
+    <Content Include="Public\img\insta5_files\101481312_609174973288041_8230607789024266171_n.jpg" />
+    <Content Include="Public\img\insta5_files\101513746_255084575699196_4771032489377792404_n.jpg" />
+    <Content Include="Public\img\insta5_files\101828975_110937883826657_4353640609279739389_n.jpg" />
+    <Content Include="Public\img\insta5_files\101842261_255298535692378_3644135998238434158_n.jpg" />
+    <Content Include="Public\img\insta5_files\101867551_593128647985024_6925282248351605187_n.jpg" />
+    <Content Include="Public\img\insta5_files\102820037_2628419737427601_5961142031330379709_n.jpg" />
+    <Content Include="Public\img\insta5_files\102847855_266492737767044_1057898731665235554_n.jpg" />
+    <Content Include="Public\img\insta5_files\102957502_147890476814262_3843486859625620015_n.jpg" />
+    <Content Include="Public\img\insta5_files\104245338_2611814725739585_8717494630770390714_n.jpg" />
+    <Content Include="Public\img\insta5_files\104377160_290073818816131_2096872108702635177_n.jpg" />
+    <Content Include="Public\img\insta5_files\104382275_154280359506004_5664952491240983880_n.jpg" />
+    <Content Include="Public\img\insta5_files\104431499_376644863311852_8133175118331484960_n.jpg" />
+    <Content Include="Public\img\insta5_files\104686371_694878668011877_7189555976169265159_n.jpg" />
+    <Content Include="Public\img\insta5_files\104707823_2460804304210064_2089493603675076536_n.jpg" />
+    <Content Include="Public\img\insta5_files\105489782_323428148682585_4719438269111565652_n.jpg" />
+    <Content Include="Public\img\insta5_files\105968197_904218476770769_4425924294680587870_n.jpg" />
+    <Content Include="Public\img\insta5_files\106073570_775806963226377_3088699279207798861_n.jpg" />
+    <Content Include="Public\img\insta5_files\106391807_624930931563486_8809982219922865066_n.jpg" />
+    <Content Include="Public\img\insta5_files\106503951_700378940743115_8271191967571161915_n.jpg" />
+    <Content Include="Public\img\insta5_files\106913488_326732751677309_7437160298147418501_n.jpg" />
+    <Content Include="Public\img\insta5_files\106929550_567517860604019_3104841726004776174_n.jpg" />
+    <Content Include="Public\img\insta5_files\10735443_587022824756571_1487888322_a.jpg" />
+    <Content Include="Public\img\insta5_files\107460818_619067965396063_9065668465051757364_n.jpg" />
+    <Content Include="Public\img\insta5_files\107569418_2622504238009670_6313664646623100863_n.jpg" />
+    <Content Include="Public\img\insta5_files\109014054_977143312712013_1857374265298552067_n.jpg" />
+    <Content Include="Public\img\insta5_files\109728766_905485609943959_7708169582348933035_n.jpg" />
+    <Content Include="Public\img\insta5_files\109809306_589222341766658_2717933243176823755_n.jpg" />
+    <Content Include="Public\img\insta5_files\110255414_284997019441434_6248857182431813100_n.jpg" />
+    <Content Include="Public\img\insta5_files\111013569_1433825413672058_2121525089463992436_n.jpg" />
+    <Content Include="Public\img\insta5_files\12568840_926013724161023_354071944_a.jpg" />
+    <Content Include="Public\img\insta5_files\22326130afec.css" />
+    <Content Include="Public\img\insta5_files\26dfdf9d3c11.css" />
+    <Content Include="Public\img\insta5_files\285f5fd5783f.css" />
+    <Content Include="Public\img\insta5_files\2c4993169770.css" />
+    <Content Include="Public\img\insta5_files\3c54a7251a1a.css" />
+    <Content Include="Public\img\insta5_files\44884218_345707102882519_2446069589734326272_n.jpg" />
+    <Content Include="Public\img\insta5_files\52127393_559209607920736_8215567850768837979_n.jpg" />
+    <Content Include="Public\img\insta5_files\53117278_326370174588084_8746245827317613604_n.jpg" />
+    <Content Include="Public\img\insta5_files\53275078_362485411022212_6240543834427145511_n.jpg" />
+    <Content Include="Public\img\insta5_files\53531761_825157334497897_865622690139976113_n.jpg" />
+    <Content Include="Public\img\insta5_files\53618424_127681044971856_2889970628092821608_n.jpg" />
+    <Content Include="Public\img\insta5_files\53677177_365790017597293_7649121743484380574_n.jpg" />
+    <Content Include="Public\img\insta5_files\54511076_571522409994180_4501645060768530432_n.jpg" />
+    <Content Include="Public\img\insta5_files\5e5cef40869a.css" />
+    <Content Include="Public\img\insta5_files\735145cfe0a4.png" />
+    <Content Include="Public\img\insta5_files\75196171_2377444549191596_5993771606260842496_n.jpg" />
+    <Content Include="Public\img\insta5_files\80803717_1249437228595456_7400605796381229056_n.jpg" />
+    <Content Include="Public\img\insta5_files\80858286_515977415681707_1790877018833813504_n%281%29.jpg" />
+    <Content Include="Public\img\insta5_files\80858286_515977415681707_1790877018833813504_n.jpg" />
+    <Content Include="Public\img\insta5_files\84269538_1792384854237405_6725323411536407304_n.jpg" />
+    <Content Include="Public\img\insta5_files\88261057_136397177697860_3894271964251947008_n.jpg" />
+    <Content Include="Public\img\insta5_files\9293afc95a2a.css" />
+    <Content Include="Public\img\insta5_files\95698005_236710784098263_4548093469854905270_n.jpg" />
+    <Content Include="Public\img\insta5_files\96008801_277667993597027_3943425465703253870_n.jpg" />
+    <Content Include="Public\img\insta5_files\96084853_1187442481587304_7137300807401758393_n.jpg" />
+    <Content Include="Public\img\insta5_files\96254183_153920496143515_2163981829751677328_n.jpg" />
+    <Content Include="Public\img\insta5_files\96930640_702106867252522_6177378130667726885_n.jpg" />
+    <Content Include="Public\img\insta5_files\97145508_266552251135491_7819841350894878720_n.jpg" />
+    <Content Include="Public\img\insta5_files\97219538_1022664251462076_2216332166221735818_n.jpg" />
+    <Content Include="Public\img\insta5_files\97882463_659457314617941_8243368805203680071_n.jpg" />
+    <Content Include="Public\img\insta5_files\98616247_577746013154030_2764185904731900700_n.jpg" />
+    <Content Include="Public\img\insta5_files\99425944_253980845829638_6055920519952438838_n.jpg" />
+    <Content Include="Public\img\insta5_files\99558350_137727674548547_6947385270553267238_n.jpg" />
+    <Content Include="Public\img\insta5_files\bf36279c7788.css" />
+    <Content Include="Public\img\insta5_files\e1ccedbdafd4.css" />
+    <Content Include="Public\img\insta5_files\e36e97b666f7.css" />
+    <Content Include="Public\img\insta5_files\e5f471a37be6.css" />
+    <Content Include="Public\img\insta5_files\f80cd1196a8b.css" />
+    <Content Include="Public\img\item1.jpg" />
+    <Content Include="Public\img\item2.jpg" />
+    <Content Include="Public\img\leftArrow.png" />
+    <Content Include="Public\img\leftIcon.jpg" />
+    <Content Include="Public\img\list1.gif" />
+    <Content Include="Public\img\list2.gif" />
+    <Content Include="Public\img\list3.gif" />
+    <Content Include="Public\img\list4.gif" />
+    <Content Include="Public\img\list5.gif" />
+    <Content Include="Public\img\list6.gif" />
+    <Content Include="Public\img\logo.png" />
+    <Content Include="Public\img\logo_footer.png" />
+    <Content Include="Public\img\mastercardLogo.png" />
+    <Content Include="Public\img\masterLogoFooter.png" />
+    <Content Include="Public\img\menu1.gif" />
+    <Content Include="Public\img\menu2.gif" />
+    <Content Include="Public\img\menu3.gif" />
+    <Content Include="Public\img\menu4.gif" />
+    <Content Include="Public\img\menu5.gif" />
+    <Content Include="Public\img\menu6.gif" />
+    <Content Include="Public\img\menu7.gif" />
+    <Content Include="Public\img\menu8.gif" />
+    <Content Include="Public\img\offer1.jpg" />
+    <Content Include="Public\img\offer2.jpg" />
+    <Content Include="Public\img\offer3.jpg" />
+    <Content Include="Public\img\pizza_1.png" />
+    <Content Include="Public\img\pizza_2.png" />
+    <Content Include="Public\img\post1.jpg" />
+    <Content Include="Public\img\post2.jpg" />
+    <Content Include="Public\img\product1.png" />
+    <Content Include="Public\img\related1.gif" />
+    <Content Include="Public\img\related2.png" />
+    <Content Include="Public\img\related3.png" />
+    <Content Include="Public\img\rightArrow.png" />
+    <Content Include="Public\img\rightIcon.jpg" />
+    <Content Include="Public\img\sale1.gif" />
+    <Content Include="Public\img\sale2.gif" />
+    <Content Include="Public\img\sale3.gif" />
+    <Content Include="Public\img\sale4.gif" />
+    <Content Include="Public\img\separator_dark.png" />
+    <Content Include="Public\img\separator_light.png" />
+    <Content Include="Public\img\shop1.gif" />
+    <Content Include="Public\img\shop10.gif" />
+    <Content Include="Public\img\shop11.gif" />
+    <Content Include="Public\img\shop12.gif" />
+    <Content Include="Public\img\shop2.gif" />
+    <Content Include="Public\img\shop3.gif" />
+    <Content Include="Public\img\shop4.gif" />
+    <Content Include="Public\img\shop5.gif" />
+    <Content Include="Public\img\shop6.gif" />
+    <Content Include="Public\img\shop7.gif" />
+    <Content Include="Public\img\shop8.gif" />
+    <Content Include="Public\img\shop9.gif" />
+    <Content Include="Public\img\slide_1.jpg" />
+    <Content Include="Public\img\slide_2.jpg" />
+    <Content Include="Public\img\team1.jpg" />
+    <Content Include="Public\img\team2.jpg" />
+    <Content Include="Public\img\team3.jpg" />
+    <Content Include="Public\img\team4.jpg" />
+    <Content Include="Public\img\team5.jpg" />
+    <Content Include="Public\img\team6.jpg" />
+    <Content Include="Public\img\teamBack1.jpg" />
+    <Content Include="Public\img\teamBack2.jpg" />
+    <Content Include="Public\img\testimonial_1.jpg" />
+    <Content Include="Public\img\testimonial_2.jpg" />
+    <Content Include="Public\img\visaandmaster.png" />
+    <Content Include="Public\img\visaLogo.png" />
+    <Content Include="Public\js\main.js" />
+    <Content Include="Public\plugins\jquery.c-share.js" />
+    <Content Include="Public\plugins\jquery.c-share.min.js" />
+    <Content Include="Public\plugins\sharetastic.css" />
+    <Content Include="Public\plugins\sharetastic.js" />
+    <Content Include="Public\scss\components\featuredPosts.css" />
+    <Content Include="Public\scss\components\foodQuality.css" />
+    <Content Include="Public\scss\components\footer.css" />
+    <Content Include="Public\scss\components\goTop.css" />
+    <Content Include="Public\scss\components\instaFeed.css" />
+    <Content Include="Public\scss\components\menuCategories.css" />
+    <Content Include="Public\scss\components\pagination.css" />
+    <Content Include="Public\scss\components\recentPosts.css" />
+    <Content Include="Public\scss\components\reservation.css" />
+    <Content Include="Public\scss\components\tags.css" />
+    <Content Include="Public\scss\components\vincentTitle.css" />
+    <Content Include="Public\scss\main.css" />
+    <Content Include="Public\scss\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="Public\scss\pages\about.css" />
+    <Content Include="Public\scss\pages\blog.css" />
+    <Content Include="Public\scss\pages\blogDetails.css" />
+    <Content Include="Public\scss\pages\cart.css" />
+    <Content Include="Public\scss\pages\checkout.css" />
+    <Content Include="Public\scss\pages\contact.css" />
+    <Content Include="Public\scss\pages\index.css" />
+    <Content Include="Public\scss\pages\login.css" />
+    <Content Include="Public\scss\pages\menu.css" />
+    <Content Include="Public\scss\pages\orders.css" />
+    <Content Include="Public\scss\pages\productDetails.css" />
+    <Content Include="Public\scss\pages\settings.css" />
+    <Content Include="Public\scss\pages\shop.css" />
+    <Content Include="Public\scss\pages\signUp.css" />
+    <Content Include="Public\scss\pages\team.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\AdminPanel\Views\web.config" />
+    <Content Include="Areas\AdminPanel\Views\Shared\Layout.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Home\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\assets\bundles\ionicons\fonts\ionicons28b5.eot" />
+    <Content Include="Areas\AdminPanel\assets\bundles\ionicons\fonts\ionicons28b5.ttf" />
+    <Content Include="Areas\AdminPanel\assets\bundles\ionicons\fonts\ionicons28b5.woff" />
+    <Content Include="Areas\AdminPanel\assets\bundles\material-icons\MaterialIcons-Regular.ttf" />
+    <Content Include="Areas\AdminPanel\assets\bundles\material-icons\MaterialIcons-Regular.woff" />
+    <Content Include="Areas\AdminPanel\assets\bundles\material-icons\MaterialIcons-Regular.woff2" />
+    <Content Include="Areas\AdminPanel\assets\bundles\summernote\font\summernote4c4d.eot" />
+    <Content Include="Areas\AdminPanel\assets\bundles\summernote\font\summernote4c4d.ttf" />
+    <Content Include="Areas\AdminPanel\assets\bundles\summernote\font\summernote4c4d.woff" />
+    <Content Include="Areas\AdminPanel\assets\bundles\summernote\font\summernoted41d.eot" />
+    <Content Include="Areas\AdminPanel\assets\bundles\weather-icon\font\weathericons-regular-webfont.eot" />
+    <Content Include="Areas\AdminPanel\assets\bundles\weather-icon\font\weathericons-regular-webfont.ttf" />
+    <Content Include="Areas\AdminPanel\assets\bundles\weather-icon\font\weathericons-regular-webfont.woff" />
+    <Content Include="Areas\AdminPanel\assets\bundles\weather-icon\font\weathericons-regular-webfont.woff2" />
+    <Content Include="Areas\AdminPanel\assets\bundles\weather-icon\font\weathericons-regular-webfontd41d.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-300.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-300.ttf" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-300.woff" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-300.woff2" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-300d41d.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-500.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-500.ttf" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-500.woff" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-500.woff2" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-500d41d.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-600.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-600.ttf" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-600.woff" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-600.woff2" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-600d41d.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-700.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-700.ttf" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-700.woff" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-700.woff2" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-700d41d.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-regular.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-regular.ttf" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-regular.woff" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-regular.woff2" />
+    <Content Include="Areas\AdminPanel\assets\fonts\hind-vadodara-v6-latin-regulard41d.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-brands-400.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-brands-400.ttf" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-brands-400.woff" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-brands-400.woff2" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-brands-400d41d.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-regular-400.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-regular-400.ttf" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-regular-400.woff" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-regular-400.woff2" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-regular-400d41d.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-solid-900.eot" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-solid-900.ttf" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-solid-900.woff" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-solid-900.woff2" />
+    <Content Include="Areas\AdminPanel\assets\fonts\webfonts\fa-solid-900d41d.eot" />
+    <Content Include="Public\css\style.css.map" />
+    <Content Include="Areas\AdminPanel\Views\Home\Login.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\WeAreVincent\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\WeAreVincent\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\User\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\User\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\User\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\WeAreVincent\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Team\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Team\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Tag\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Tag\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Tag\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Home\Subscribe.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Slider\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Slider\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Slider\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Reservation\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Position\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Position\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Position\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Order\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\MenuCategory\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Message\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\MenuCategory\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\MenuCategory\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Menu\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Menu\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Team\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\InstaFeed\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\InstaFeed\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\InstaFeed\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Galery\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Galery\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Galery\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\BlogCategory\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\BlogCategory\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\BlogCategory\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Blog\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Blog\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Blog\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Admin\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Admin\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Address\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Address\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Address\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Accordion\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Accordion\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Accordion\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Settings\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Settings\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Reviews\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Reviews\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Reviews\Edit.cshtml" />
+    <Content Include="Public\scss\components\featuredPosts.scss" />
+    <Content Include="Public\scss\components\foodQuality.scss" />
+    <Content Include="Public\scss\components\footer.scss" />
+    <Content Include="Public\scss\components\goTop.scss" />
+    <Content Include="Public\scss\components\header.scss" />
+    <Content Include="Public\scss\components\instaFeed.scss" />
+    <Content Include="Public\scss\components\menuCategories.scss" />
+    <Content Include="Public\scss\components\pagination.scss" />
+    <Content Include="Public\scss\components\recentPosts.scss" />
+    <Content Include="Public\scss\components\reservation.scss" />
+    <Content Include="Public\scss\components\tags.scss" />
+    <Content Include="Public\scss\components\vincentTitle.scss" />
+    <Content Include="Public\scss\main.css.map" />
+    <Content Include="Public\scss\main.scss" />
+    <Content Include="Public\scss\pages\about.scss" />
+    <Content Include="Public\scss\pages\blog.scss" />
+    <Content Include="Public\scss\pages\blogDetails.scss" />
+    <Content Include="Public\scss\pages\cart.scss" />
+    <Content Include="Public\scss\pages\checkout.scss" />
+    <Content Include="Public\scss\pages\contact.scss" />
+    <Content Include="Public\scss\pages\index.scss" />
+    <Content Include="Public\scss\pages\login.scss" />
+    <Content Include="Public\scss\pages\menu.scss" />
+    <Content Include="Public\scss\pages\orders.scss" />
+    <Content Include="Public\scss\pages\productDetails.scss" />
+    <Content Include="Public\scss\pages\settings.scss" />
+    <Content Include="Public\scss\pages\shop.scss" />
+    <Content Include="Public\scss\pages\signUp.scss" />
+    <Content Include="Public\scss\pages\team.scss" />
+    <Content Include="Public\scss\shared\_mixings.scss" />
+    <Content Include="Public\scss\shared\_variables.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Public\img\insta2_files\02006269aae8.js.download" />
+    <Content Include="Public\img\insta2_files\0411ffbf850e.js.download" />
+    <Content Include="Public\img\insta2_files\0da673aa3048.js.download" />
+    <Content Include="Public\img\insta2_files\1676b2cd61a5.js.download" />
+    <Content Include="Public\img\insta2_files\1cb49092fd95.js.download" />
+    <Content Include="Public\img\insta2_files\4f4ce4a10dec.js.download" />
+    <Content Include="Public\img\insta2_files\72136ad4eb6c.js.download" />
+    <Content Include="Public\img\insta2_files\7e81ebfc02fd.js.download" />
+    <Content Include="Public\img\insta2_files\83cef180ac4a.js.download" />
+    <Content Include="Public\img\insta2_files\a8572e86ef1a.js.download" />
+    <Content Include="Public\img\insta2_files\b33b5ecfe038.js.download" />
+    <Content Include="Public\img\insta2_files\b46ddc30b3ea.js.download" />
+    <Content Include="Public\img\insta2_files\c31e4150c3ca.js.download" />
+    <Content Include="Public\img\insta2_files\c911f5848b78.js.download" />
+    <Content Include="Public\img\insta2_files\e6ac48e070be.js.download" />
+    <Content Include="Public\img\insta2_files\f7e7fe0e5883.js.download" />
+    <Content Include="Public\img\insta3_files\02006269aae8.js.download" />
+    <Content Include="Public\img\insta3_files\0411ffbf850e.js.download" />
+    <Content Include="Public\img\insta3_files\0da673aa3048.js.download" />
+    <Content Include="Public\img\insta3_files\1676b2cd61a5.js.download" />
+    <Content Include="Public\img\insta3_files\1cb49092fd95.js.download" />
+    <Content Include="Public\img\insta3_files\4f4ce4a10dec.js.download" />
+    <Content Include="Public\img\insta3_files\72136ad4eb6c.js.download" />
+    <Content Include="Public\img\insta3_files\7e81ebfc02fd.js.download" />
+    <Content Include="Public\img\insta3_files\83cef180ac4a.js.download" />
+    <Content Include="Public\img\insta3_files\a8572e86ef1a.js.download" />
+    <Content Include="Public\img\insta3_files\b33b5ecfe038.js.download" />
+    <Content Include="Public\img\insta3_files\b46ddc30b3ea.js.download" />
+    <Content Include="Public\img\insta3_files\c31e4150c3ca.js.download" />
+    <Content Include="Public\img\insta3_files\c911f5848b78.js.download" />
+    <Content Include="Public\img\insta3_files\e6ac48e070be.js.download" />
+    <Content Include="Public\img\insta3_files\f7e7fe0e5883.js.download" />
+    <Content Include="Public\img\insta4_files\02006269aae8.js.download" />
+    <Content Include="Public\img\insta4_files\0411ffbf850e.js.download" />
+    <Content Include="Public\img\insta4_files\0da673aa3048.js.download" />
+    <Content Include="Public\img\insta4_files\1676b2cd61a5.js.download" />
+    <Content Include="Public\img\insta4_files\1cb49092fd95.js.download" />
+    <Content Include="Public\img\insta4_files\4f4ce4a10dec.js.download" />
+    <Content Include="Public\img\insta4_files\72136ad4eb6c.js.download" />
+    <Content Include="Public\img\insta4_files\7e81ebfc02fd.js.download" />
+    <Content Include="Public\img\insta4_files\83cef180ac4a.js.download" />
+    <Content Include="Public\img\insta4_files\a8572e86ef1a.js.download" />
+    <Content Include="Public\img\insta4_files\b33b5ecfe038.js.download" />
+    <Content Include="Public\img\insta4_files\b46ddc30b3ea.js.download" />
+    <Content Include="Public\img\insta4_files\c31e4150c3ca.js.download" />
+    <Content Include="Public\img\insta4_files\c911f5848b78.js.download" />
+    <Content Include="Public\img\insta4_files\e6ac48e070be.js.download" />
+    <Content Include="Public\img\insta4_files\f7e7fe0e5883.js.download" />
+    <Content Include="Public\img\insta5_files\02006269aae8.js.download" />
+    <Content Include="Public\img\insta5_files\0411ffbf850e.js.download" />
+    <Content Include="Public\img\insta5_files\0da673aa3048.js.download" />
+    <Content Include="Public\img\insta5_files\1676b2cd61a5.js.download" />
+    <Content Include="Public\img\insta5_files\1cb49092fd95.js.download" />
+    <Content Include="Public\img\insta5_files\4f4ce4a10dec.js.download" />
+    <Content Include="Public\img\insta5_files\72136ad4eb6c.js.download" />
+    <Content Include="Public\img\insta5_files\7e81ebfc02fd.js.download" />
+    <Content Include="Public\img\insta5_files\83cef180ac4a.js.download" />
+    <Content Include="Public\img\insta5_files\a8572e86ef1a.js.download" />
+    <Content Include="Public\img\insta5_files\b33b5ecfe038.js.download" />
+    <Content Include="Public\img\insta5_files\b46ddc30b3ea.js.download" />
+    <Content Include="Public\img\insta5_files\c31e4150c3ca.js.download" />
+    <Content Include="Public\img\insta5_files\c911f5848b78.js.download" />
+    <Content Include="Public\img\insta5_files\e6ac48e070be.js.download" />
+    <Content Include="Public\img\insta5_files\f7e7fe0e5883.js.download" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Uploads\06092020183702044logo.png" />
+    <Content Include="Uploads\06092020183702045footerLogoMastercard.jpg" />
+    <Content Include="Uploads\06092020183702045logo_footer.png" />
+    <Content Include="Uploads\06092020183702045visaLogo.png" />
+    <Content Include="Uploads\07082020130603108about_2-1.jpg" />
+    <Content Include="Uploads\07082020130603109about_3-1.jpg" />
+    <Content Include="Uploads\0708202013140997819.jpg" />
+    <Content Include="Uploads\07082020131409979about_3-1.jpg" />
+    <Content Include="Uploads\07082020145211554about_1-1.jpg" />
+    <Content Include="Uploads\07082020212332866about_1-1.jpg" />
+    <Content Include="Uploads\0708202021295052819.jpg" />
+    <Content Include="Uploads\07082020213420234back_1.jpg" />
+    <Content Include="Uploads\07082020213420235back_3.jpg" />
+    <Content Include="Uploads\08082020194444909blog3.jpg" />
+    <Content Include="Uploads\09082020095217915about_2-1.jpg" />
+    <Content Include="Uploads\09082020095546179about_2-1.jpg" />
+    <Content Include="Uploads\09082020095557958about_2-1.jpg" />
+    <Content Include="Uploads\09082020095606826about_2-1.jpg" />
+    <Content Include="Uploads\09082020101816622about_2-1.jpg" />
+    <Content Include="Uploads\09082020101941659about_2-1.jpg" />
+    <Content Include="Uploads\09082020102235167about_2-1.jpg" />
+    <Content Include="Uploads\09082020104103496about_3-1.jpg" />
+    <Content Include="Uploads\09082020104103496blog4.jpg" />
+    <Content Include="Uploads\09082020104336881back_3.jpg" />
+    <Content Include="Uploads\09082020110159618blog7.jpg" />
+    <Content Include="Uploads\0908202011061359619.jpg" />
+    <Content Include="Uploads\09082020111440942about_1-1.jpg" />
+    <Content Include="Uploads\09082020111727699about_1-1.jpg" />
+    <Content Include="Uploads\09082020111742937back_3.jpg" />
+    <Content Include="Uploads\09082020112109812about_1-1.jpg" />
+    <Content Include="Uploads\09082020143404565about_2-1.jpg" />
+    <Content Include="Uploads\09082020143434264back_3.jpg" />
+    <Content Include="Uploads\09082020144644762back_3.jpg" />
+    <Content Include="Uploads\09082020144716876back_3.jpg" />
+    <Content Include="Uploads\09082020144825308back_3.jpg" />
+    <Content Include="Uploads\09082020145917221blog6.jpg" />
+    <Content Include="Uploads\0908202014593030119.jpg" />
+    <Content Include="Uploads\09082020203305392about_1-1.jpg" />
+    <Content Include="Uploads\09082020204352132about_1-1.jpg" />
+    <Content Include="Uploads\09082020205003025about_2-1.jpg" />
+    <Content Include="Uploads\09082020214454680add_to_cart.png" />
+    <Content Include="Uploads\09082020215147171add_to_cart.png" />
+    <Content Include="Uploads\09082020215221048back_3.jpg" />
+    <Content Include="Uploads\09082020215531819blog3.jpg" />
+    <Content Include="Uploads\09082020221534397back_3.jpg" />
+    <Content Include="Uploads\10082020111102762about_2-1.jpg" />
+    <Content Include="Uploads\10082020111202904about_2-1.jpg" />
+    <Content Include="Uploads\1008202011141055819.jpg" />
+    <Content Include="Uploads\1008202013050486419.jpg" />
+    <Content Include="Uploads\1008202013050486619.jpg" />
+    <Content Include="Uploads\10082020130504866about_2-1.jpg" />
+    <Content Include="Uploads\10082020130504866back_3.jpg" />
+    <Content Include="Uploads\10082020145509019about_1-1.jpg" />
+    <Content Include="Uploads\10082020150602771about_1-1.jpg" />
+    <Content Include="Uploads\10082020150623800about_1-1.jpg" />
+    <Content Include="Uploads\10082020195053255about_1-1.jpg" />
+    <Content Include="Uploads\10082020232802483back_1.jpg" />
+    <Content Include="Uploads\10082020232829594back_1.jpg" />
+    <Content Include="Uploads\10082020233412192back_3.jpg" />
+    <Content Include="Uploads\10082020234006212back_3.jpg" />
+    <Content Include="Uploads\10082020234455145back_3.jpg" />
+    <Content Include="Uploads\10082020234715446back_3.jpg" />
+    <Content Include="Uploads\10082020234826376back_3.jpg" />
+    <Content Include="Uploads\11082020094304375about_1-1.jpg" />
+    <Content Include="Uploads\1108202010092617419.jpg" />
+    <Content Include="Uploads\12082020190759178blog1.jpg" />
+    <Content Include="Uploads\12082020191209988blog2.jpg" />
+    <Content Include="Uploads\12082020191308738blog3.jpg" />
+    <Content Include="Uploads\12082020191415159blog4.jpg" />
+    <Content Include="Uploads\12082020191706387blog5.jpg" />
+    <Content Include="Uploads\12082020191755122blog6.jpg" />
+    <Content Include="Uploads\12082020191914874blog7.jpg" />
+    <Content Include="Uploads\12082020192052393blog8.jpg" />
+    <Content Include="Uploads\12082020192203426blog9.jpg" />
+    <Content Include="Uploads\15082020211721117img_5.jpg" />
+    <Content Include="Uploads\15082020211721118img_6.jpg" />
+    <Content Include="Uploads\15082020212350298team1.jpg" />
+    <Content Include="Uploads\15082020212724103team1.jpg" />
+    <Content Include="Uploads\15082020213550620sale4.gif" />
+    <Content Include="Uploads\15082020213720537list2.gif" />
+    <Content Include="Uploads\15082020213803907slide_2.jpg" />
+    <Content Include="Uploads\15082020214259913logo.png" />
+    <Content Include="Uploads\15082020214259913logo_footer.png" />
+    <Content Include="Uploads\15082020214259913masterLogoFooter.png" />
+    <Content Include="Uploads\15082020214259913visaLogo.png" />
+    <Content Include="Uploads\15082020214432639testimonial_1.jpg" />
+    <Content Include="Uploads\15082020214518794testimonial_2.jpg" />
+    <Content Include="Uploads\15082020222553501menu1.gif" />
+    <Content Include="Uploads\15082020222629486menu1.gif" />
+    <Content Include="Uploads\15082020222808179menu1.gif" />
+    <Content Include="Uploads\15082020223635329blog9.jpg" />
+    <Content Include="Uploads\15082020223733655gal_1.jpg" />
+    <Content Include="Uploads\15082020223746950gal_2.jpg" />
+    <Content Include="Uploads\15082020223758751gal_3.jpg" />
+    <Content Include="Uploads\15082020223809816gal_4.jpg" />
+    <Content Include="Uploads\15082020223821051gal_5.jpg" />
+    <Content Include="Uploads\15082020223838753gal_6.jpg" />
+    <Content Include="Uploads\15082020223849811gal_7.jpg" />
+    <Content Include="Uploads\15082020223859768gal_8.jpg" />
+    <Content Include="Uploads\15082020224450077girl.jpg" />
+    <Content Include="Uploads\15082020225127084img_5.jpg" />
+    <Content Include="Uploads\15082020225252440img_6.jpg" />
+    <Content Include="Uploads\1608202009155122519.jpg" />
+    <Content Include="Uploads\1608202009221162319.jpg" />
+    <Content Include="Uploads\1608202009273336719.jpg" />
+    <Content Include="Uploads\1608202009274147419.jpg" />
+    <Content Include="Uploads\1608202009275518319.jpg" />
+    <Content Include="Uploads\1608202009275986119.jpg" />
+    <Content Include="Uploads\1608202009280267819.jpg" />
+    <Content Include="Uploads\16082020093548773about_1-1.jpg" />
+    <Content Include="Uploads\16082020093619408about_1-1.jpg" />
+    <Content Include="Uploads\1608202009374235819.jpg" />
+    <Content Include="Uploads\16082020093942851team1.jpg" />
+    <Content Include="Uploads\16082020094027694team2.jpg" />
+    <Content Include="Uploads\16082020094105249team3.jpg" />
+    <Content Include="Uploads\16082020094140606team4.jpg" />
+    <Content Include="Uploads\16082020094216372team5.jpg" />
+    <Content Include="Uploads\16082020094250826team6.jpg" />
+    <Content Include="Uploads\16082020094535110about_1-1.jpg" />
+    <Content Include="Uploads\16082020094624886about_1-1.jpg" />
+    <Content Include="Uploads\16082020095224869about_1-1.jpg" />
+    <Content Include="Uploads\16082020105027024menu8.gif" />
+    <Content Include="Uploads\16082020105305916menu7.gif" />
+    <Content Include="Uploads\16082020110308802menu6.gif" />
+    <Content Include="Uploads\16082020110354822menu5.gif" />
+    <Content Include="Uploads\16082020110440793menu4.gif" />
+    <Content Include="Uploads\16082020110532331menu3.gif" />
+    <Content Include="Uploads\16082020110622972menu2.gif" />
+    <Content Include="Uploads\16082020110714483menu1.gif" />
+    <Content Include="Uploads\16082020111009810salad5.png" />
+    <Content Include="Uploads\16082020111117931salad1.gif" />
+    <Content Include="Uploads\16082020111200867salad3.png" />
+    <Content Include="Uploads\16082020111257945salad4.png" />
+    <Content Include="Uploads\16082020111340572salad5.png" />
+    <Content Include="Uploads\16082020111428885salad7.png" />
+    <Content Include="Uploads\16082020111500678salad8.png" />
+    <Content Include="Uploads\16082020111547676salad7.png" />
+    <Content Include="Uploads\16082020111657830pasta1.gif" />
+    <Content Include="Uploads\16082020111736556pasta2.gif" />
+    <Content Include="Uploads\16082020111812058pasta3.png" />
+    <Content Include="Uploads\16082020111849251pasta4.png" />
+    <Content Include="Uploads\16082020111931996pasta5.png" />
+    <Content Include="Uploads\16082020112001495pasta6.png" />
+    <Content Include="Uploads\16082020112031073pasta7.png" />
+    <Content Include="Uploads\16082020112106279pasta8.png" />
+    <Content Include="Uploads\16082020112330558drink1.png" />
+    <Content Include="Uploads\16082020112413982drink2.png" />
+    <Content Include="Uploads\16082020112451409drink3.png" />
+    <Content Include="Uploads\16082020112530934drink4.png" />
+    <Content Include="Uploads\16082020112616278drink5.png" />
+    <Content Include="Uploads\16082020112756812drink6.png" />
+    <Content Include="Uploads\16082020113128927drink7.png" />
+    <Content Include="Uploads\16082020113213764drink8.png" />
+    <Content Include="Uploads\16082020115838721dessert1.png" />
+    <Content Include="Uploads\16082020115917817dessert2.png" />
+    <Content Include="Uploads\16082020120003647dessert3.png" />
+    <Content Include="Uploads\16082020120050891dessert4.png" />
+    <Content Include="Uploads\16082020120144893dessert5.png" />
+    <Content Include="Uploads\16082020120214501dessert6.png" />
+    <Content Include="Uploads\16082020120317695dessert7.png" />
+    <Content Include="Uploads\16082020120414488dessert8.png" />
+    <Content Include="Uploads\16082020120608114burger1.png" />
+    <Content Include="Uploads\16082020120724354burger2.png" />
+    <Content Include="Uploads\16082020120850931burger3.png" />
+    <Content Include="Uploads\16082020120929698burger4.png" />
+    <Content Include="Uploads\16082020121005039burger5.png" />
+    <Content Include="Uploads\16082020121037748burger6.png" />
+    <Content Include="Uploads\16082020121114783burger7.png" />
+    <Content Include="Uploads\16082020121147661burger8.png" />
+    <Content Include="Uploads\16082020223141543dessert5.png" />
+    <Content Include="Uploads\16082020223154426burger7.png" />
+    <Content Include="Uploads\16082020223227224dessert7.png" />
+    <Content Include="Uploads\16082020223247249drink8.png" />
+    <Content Include="Uploads\16082020223328692pasta5.png" />
+    <Content Include="Uploads\19082020124706828photofb.jpg" />
+    <Content Include="Uploads\24082020144936517blog5.jpg" />
+    <Content Include="Uploads\download.png" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Blogs\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Team\Index.cshtml" />
+    <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\Card\Index.cshtml" />
+    <Content Include="Views\Home\Settings.cshtml" />
+    <Content Include="Views\Home\MyOrders.cshtml" />
+    <Content Include="Views\Menu\Details.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Blogs\Detail.cshtml" />
+    <Content Include="Views\Blogs\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\AdminPanel\Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202008060457254_init.resx">
+      <DependentUpon>202008060457254_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008080759432_update.resx">
+      <DependentUpon>202008080759432_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008081546109_updateMenu.resx">
+      <DependentUpon>202008081546109_updateMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008090542425_correctRel.resx">
+      <DependentUpon>202008090542425_correctRel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008090544443_correctMenu.resx">
+      <DependentUpon>202008090544443_correctMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008090554572_menu.resx">
+      <DependentUpon>202008090554572_menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008091615228_blog.resx">
+      <DependentUpon>202008091615228_blog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008101105114_foreignKey.resx">
+      <DependentUpon>202008101105114_foreignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008110540495_removeRelation.resx">
+      <DependentUpon>202008110540495_removeRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008111221215_userpassword.resx">
+      <DependentUpon>202008111221215_userpassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008120614557_listMessage.resx">
+      <DependentUpon>202008120614557_listMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008160700482_changeType.resx">
+      <DependentUpon>202008160700482_changeType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008301340084_changePass.resx">
+      <DependentUpon>202008301340084_changePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008301352273_changePassword.resx">
+      <DependentUpon>202008301352273_changePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008301754089_menuCount.resx">
+      <DependentUpon>202008301754089_menuCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008310735447_removeCount.resx">
+      <DependentUpon>202008310735447_removeCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009010843347_addQuantity.resx">
+      <DependentUpon>202009010843347_addQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59138</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59138/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.12.405\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.12.405\build\BuildWebCompiler.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\BuildWebCompiler.1.12.405\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.12.405\build\BuildWebCompiler.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

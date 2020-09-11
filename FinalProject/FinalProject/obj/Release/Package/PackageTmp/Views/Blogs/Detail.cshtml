@@ -1,0 +1,170 @@
+﻿@model FinalProject.ViewModels.vmBlog
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <main>
+        <section id="vincentTitle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="innerText">
+                            <h1>@Model.Blog.Title</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="singleBlog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-sm-12 col-md-12">
+                        <div class="leftSideBar">
+                            <a href="#">
+                                <p class="category">@Model.Blog.BlogCategory.Name</p>
+                            </a>
+                            <p class="date">@Model.Blog.Date.ToString("MMMM dd,yyyy")</p>
+                            <a href="#">
+                                <p class="author" data-id="@Model.Blog.Id">@Model.Blog.Author</p>
+                            </a>
+                            <p class="commentCount">
+                                     @(Model.Blog.Messages!=null?Model.Blog.Messages.Count:0) comment
+                            </p>
+                            <img src="~/Uploads/@Model.Blog.Image" alt="">
+                            <p class="article">
+                                @Html.Raw(Model.Blog.Text)
+                            </p>
+
+                        </div>
+                        <div class="tags">
+                            <span>Tags :</span>
+                            @foreach (var item in Model.Tags.Take(4))
+                            {
+                                <a href="@Url.Action("Index","Blogs", new { tag=item.Name})" name="tag">#@item.Name ,</a>
+
+                            }
+                        </div>
+                        <div class="sharePosts">
+                            <span>Share this Post</span>
+                            <a id="shareBlock" href=""></a>
+                        </div>
+                        @foreach (var item in Model.Blogs.Take(2))
+                        {
+                            <div class="items">
+                                <a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">
+                                    <h4>@item.Title</h4>
+                                </a>
+                                <a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">
+                                    <p class="category">@item.BlogCategory.Name</p>
+                                </a>
+                                <p class="date">@item.Date.ToString("MMMM dd,yyyy")</p> <br>
+                                <a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">
+                                    <p class="author">@item.Author</p>
+                                </a>
+                                <p class="commentCount">
+                                    @ViewBag.Message comment
+                                </p>
+                                <a class="postImg" href="@Url.Action("Detail","Blogs", new { Id=item.Id})"><img src="~/Uploads/@item.Image" alt=""></a>
+                            </div>
+                        }
+
+                    <div class="comments">
+                        <h5>Comments on This Post</h5>
+                        @if (Model.Blog.Messages!=null)
+                        {
+                            foreach (var item in Model.Blog.Messages.OrderByDescending(o => o.CreatedDate))
+                            {
+                                <div class="innerComment">
+                                    <div class="left">
+                                        <img src="~/Public/img/download.jpg">
+                                        <h6> @item.User.Name @item.User.Surname</h6>
+                                    </div>
+                                    <p>
+                                        @item.Comment
+                                    </p>
+                                </div>
+                            }
+                        }
+                    </div>
+                        <div class="leaveMessage">
+                            <h5>Leave a Reply </h5>
+                            <form action="@Url.Action("SendMessage","Blogs")" method="post" autocomplete="off" enctype="multipart/form-data" id="blogForm">
+                                @if (Session["LoginnerUser"] != null)
+                                {
+                                    <input type="text" class="message" placeholder="Your message *" name="Comment" >
+                                    <input type="hidden" name="BlogId" class="blog" value="@Model.Blog.Id" />
+                                    <button type="submit" class="send">Send message</button>
+                                }
+                                else
+                                {
+                                    <div class="alert alert-warning">
+                                        You can not leave comments. Please <a style="text-decoration:none ; color:#856404; font-weight:bold" href="@Url.Action("SignUp","Home")">  Sign Up!</a>
+                                    </div>
+                                }
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="search">
+                            <form action="@Url.Action("Index","Blogs")" autocomplete="off" method="get">
+                                <input type="text" placeholder="search" name="word" style="text-transform:lowercase">
+                                <i class="fas fa-search"></i>
+                            </form>
+                        </div>
+                        <div class="posts">
+                            <h6>Featured Posts</h6>
+                            @foreach (var item in Model.Blogs.Take(2))
+                            {
+                                <div class="post">
+                                    <img src="~/Uploads/@item.Image" alt="">
+                                    <a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">
+                                        <h4>@item.Title</h4>
+                                    </a>
+                                    <span>@item.Date.ToString("MMMM dd,yyyy")</span>
+                                </div>
+                            }
+                        </div>
+                        <div class="recentPosts">
+                            <h6>Recent Posts</h6>
+                            <ul>
+                                @foreach (var item in Model.Blogs.OrderBy(m => m.CreatedDate).Take(5))
+                                {
+                                    <li><a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">@item.Title</a></li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="rightSideTags">
+                            <h6>Tags</h6>
+                            @foreach (var item in Model.Tags.OrderByDescending(o=>o.Name).Take(7))
+                            {
+                                <a href="@Url.Action("Index","Blogs", new { tag=item.Name})" name="tag">#@item.Name</a>
+                            }
+                        </div>
+                        <div class="instaFeed">
+                            <h6>Instafeed</h6>
+                            @foreach (var item in Model.InstaFeeds.Take(6))
+                            {
+                                <a href="@item.Link">
+                                    <img src="~/Uploads/@item.Image" alt="">
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="goTopBtn">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="goTop">
+                            <i class="fas fa-chevron-up animate heartBeat"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+

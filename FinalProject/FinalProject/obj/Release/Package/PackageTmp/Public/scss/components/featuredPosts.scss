@@ -1,0 +1,44 @@
+.posts {
+    background: #1d2326;
+    margin-bottom: 100px;
+    padding-bottom: 30px;
+    h6 {
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding-top: 45px;
+        padding-bottom: 30px;
+        margin-left: 45px;
+    }
+    .post {
+        margin-left: 45px;
+        margin-bottom: 50px;
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+        a {
+            text-decoration: none;
+            color: $white;
+        }
+        h4 {
+            font-size: 16px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            max-width: 165px;
+            margin-left: 110px;
+            margin-top: -75px;
+            &:hover {
+                color: $orange;
+            }
+        }
+        span {
+            margin-left: 110px;
+            margin-top: -60px;
+            font-family: $textFont;
+            font-size: 14px;
+            font-weight: 100;
+        }
+    }
+}

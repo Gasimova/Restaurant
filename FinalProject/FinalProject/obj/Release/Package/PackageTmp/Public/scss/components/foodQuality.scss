@@ -1,0 +1,30 @@
+#aboutCompany {
+    background-image: url("../img/back_2.png");
+    padding-top: 90px !important;
+    padding-bottom: 70px !important;
+    .container {
+        .row {
+            .col-lg-4 {
+                .items {
+                    text-align: center;
+                    img {
+                        margin-bottom: 36px;
+                    }
+                    h4 {
+                        letter-spacing: 6px;
+                        font-family: $titleFont;
+                        color: $black;
+                        margin-bottom: 30px;
+                    }
+                    p {
+                        font-size: 15px;
+                        font-family: $textFont;
+                        color: $black;
+                        line-height: 28px;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,217 @@
+﻿@model List<FinalProject.Models.Menu>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+
+<main>
+    <section id="vincentTitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="innerText">
+                        <h1>choose from our best offers</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menuPages">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <div class="menuImage"></div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <div class="menuList">
+                        <ul>
+                            @foreach (var item in Model.Take(8))
+                            {
+                            <li>
+                                <div class="listItems">
+                                    <a href="@Url.Action("Details","Menu",new { Id=item.Id})">
+                                        <h1>
+                                            <span class="diff">@item.Name</span>
+                                            <span class="price">$@item.Price</span>
+                                        </h1>
+                                        <div class="dots"></div>
+                                        <p>@(item.Description.Length>50 ? item.Description.Substring(0,50) :item.Description)</p>
+                                    </a>
+                                </div>
+                            </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <div class="menuList">
+                        <ul>
+                            @foreach (var item in Model.Take(8))
+                            {
+                                <li>
+                                    <div class="listItems">
+                                        <a href="@Url.Action("Details","Menu",new { Id=item.Id})">
+                                            <h1>
+                                                <span class="diff">@item.Name</span>
+                                                <span class="price">$@item.Price</span>
+                                            </h1>
+                                            <div class="dots"></div>
+                                            <p>@(item.Description.Length>50 ? item.Description.Substring(0,50) :item.Description)</p>
+                                        </a>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <div class="menuImage2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <div class="menuImage3"></div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <div class="menuList">
+                        <ul>
+                            @foreach (var item in Model.Take(8))
+                            {
+                                <li>
+                                    <div class="listItems">
+                                        <a href="@Url.Action("Details","Menu",new { Id=item.Id})">
+                                            <h1>
+                                                <span class="diff">@item.Name</span>
+                                                <span class="price">$@item.Price</span>
+                                            </h1>
+                                            <div class="dots"></div>
+                                            <p>@(item.Description.Length>50 ? item.Description.Substring(0,50) :item.Description)</p>
+                                        </a>
+                                    </div>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="discover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ourMenu">
+                        <h1>DISCOVER OUR MENU</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menuList">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="list">
+                        <ul>
+                            @foreach (var item in ViewBag.MenuCategory)
+                            {
+                                <li> <a data-id="@item.Id" class="menuCat" href="#">@item.Name</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container productList">
+            <div class="row customRow">
+                @foreach (var item in Model.OrderBy(o=>o.MenuCategoryId).Take(6))
+                {
+                    <div class="col-lg-6 col-md-6">
+                        <div class="listItem">
+                            <div class="image">
+                                <a href="@Url.Action("Details","Menu", new { Id=item.Id})" > <img src="~/Uploads/@item.Image" alt="Alternate Text" /> </a>
+                                <div class="overlay">
+                                    <div class="cartIcon"></div>
+                                    <div class="bagIcon">
+                                        <a class="addtoCart" data-id="@item.Id" href=""><i class="fas fa-shopping-bag"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <a href="@Url.Action("Details","Menu", new { Id=item.Id})"><h5 class="itemName" data-id="@item.MenuCategory.Id">@item.Name</h5></a>
+                                <p>
+                                   @(item.Description.Length>50 ? item.Description.Substring(0,50): item.Description)
+                                </p>
+                                <span class="price">$@item.Price</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            @*<div class="row">
+                <div class="col-lg-12">
+                    <div class="viewBtn">
+                        <a class="viewAll" href="#">View all  ></a>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </section>
+
+    <section id="aboutCompany">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="items">
+                        <img src="~/Public/img/icon_1.png" alt="">
+                        <h4>QUALITY FOODS</h4>
+                        <p>
+                            Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
+                            curabitur dapibus mauris sed leo cursus aliquetcras suscipit.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="items">
+                        <img src="~/Public/img/icon_3.png" alt="">
+                        <h4>FASTEST DELIVERY</h4>
+                        <p>
+                            Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
+                            curabitur dapibus mauris sed leo cursus aliquetcras suscipit.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="items">
+                        <img src="~/Public/img/icon_2.png" alt="">
+                        <h4>ORIGINAL RECIPES</h4>
+                        <p>
+                            Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
+                            curabitur dapibus mauris sed leo cursus aliquetcras suscipit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="goTopBtn">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="goTop">
+                        <i class="fas fa-chevron-up animate heartBeat"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

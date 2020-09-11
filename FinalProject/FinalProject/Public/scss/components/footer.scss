@@ -1,0 +1,211 @@
+#footerArea {
+    font-family: $titleFont;
+    color: $white;
+    border-top: 1px solid #1d2326;
+    background: $black;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    .container {
+        .row {
+            .col-lg-3 {
+                .footerLogo {
+                    text-align: left;
+                    img {
+                        width: 200px;
+                        margin-bottom: 80px;
+                    }
+                }
+                .socialLinks {
+                    margin-left: 25px;
+                    margin-top: -28px;
+                    margin-top: 82px;
+
+                    a {
+                        text-decoration: none;
+                        color: $white;
+                        &:hover {
+                            i {
+                                color: $orange;
+                            }
+                        }
+                        i {
+                            font-size: 20px;
+                            background: $gray;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            line-height: 40px;
+                            text-align: center;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+                .hours {
+                    text-align: center;
+                    margin-top: 50px;
+                    h4 {
+                        font-family: $textFont;
+                        font-size: 16px;
+                        margin-left: -28px;
+                    }
+                    span {
+                        display: block;
+                        font-family: $textFont;
+                        font-size: 13px;
+                        font-weight: 100;
+                    }
+                }
+
+                .shoppingCards {
+                    margin-top: 67px;
+                    img {
+                        max-width: 27%;
+                        margin-right: 7px;
+                    }
+                }
+            }
+        }
+        .row {
+            .col-lg-12 {
+                text-align: center;
+                p {
+                    opacity: 0.5;
+                    font-weight: 100;
+                    font-size: 14px;
+                    font-family: $textFont;
+                    border-top: 1px solid #1d2326;
+                    padding: 15px 0px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    #footerArea {
+        .container {
+            .row {
+                .col-lg-3 {
+                    .footerLogo {
+                        img {
+                            width: 100%;
+                            margin-left: -35px;
+                        }
+                    }
+                    .hours {
+                        margin-top: 30px !important;
+                        padding-bottom: 25px !important;
+                        span,
+                        h4 {
+                            color: gray;
+                        }
+                    }
+                    .socialLinks {
+                        margin-left: 0px !important;
+                        margin-top: 45px !important;
+                        a {
+                            i {
+                                margin-right: 7px !important;
+                                color: gray;
+                            }
+                        }
+                    }
+                    .shoppingCards {
+                        margin-top: 48px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #footerArea {
+        .container {
+            .row {
+                .col-lg-3 {
+                    .footerLogo {
+                        img {
+                            width: 100%;
+                            margin-left: -35px;
+                            margin-top: 30px;
+                        }
+                    }
+                    .hours {
+                        margin-top: 30px !important;
+                        padding-bottom: 25px !important;
+                        width: 115px;
+
+                        span,
+                        h4 {
+                            color: gray;
+                        }
+                        span {
+                            font-size: 10px;
+                        }
+                        h4 {
+                            font-size: 13px;
+                            margin-left: -16px;
+                        }
+                    }
+                    .socialLinks {
+                        margin-left: 2px !important;
+                        margin-top: 45px !important;
+                        a {
+                            i {
+                                margin-right: 2px !important;
+                                color: gray;
+                                font-size: 15px;
+                                width: 30px;
+                                height: 30px;
+                                line-height: 30px;
+                            }
+                        }
+                    }
+                    .shoppingCards {
+                        margin-top: 48px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    #footerArea {
+        .container {
+            .row {
+                .col-lg-3 {
+                    .footerLogo {
+                        img {
+                            max-width: 100%;
+                            margin-left: 10px;
+                        }
+                    }
+                    .hours {
+                        margin-top: 30px !important;
+                        padding-bottom: 25px !important;
+                    }
+                    .socialLinks {
+                        margin-left: 12px !important;
+                        margin-top: 45px !important;
+                        a {
+                            i {
+                                margin-right: 0px !important;
+                                font-size: 12px;
+                                width: 20px;
+                                height: 20px;
+                                line-height: 20px;
+                            
+                            }
+                        }
+                    }
+                    .shoppingCards {
+                        margin-top: 45px !important;
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

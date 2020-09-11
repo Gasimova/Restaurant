@@ -1,0 +1,226 @@
+﻿@model FinalProject.ViewModels.vmAbout
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+
+    <section id="vincentTitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="innerText">
+                        <h1>about our pizzaria</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aboutImgs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="items">
+                        <img src="~/Uploads/@Model.WeAreVincents.Image1" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="items">
+                        <img src="~/Uploads/@Model.WeAreVincents.Image2" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="weAreVincent">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="info">
+                        <h2>@Model.WeAreVincents.Title</h2>
+                        <h6>
+                           @Model.WeAreVincents.SubTitle
+                        </h6>
+                        <img src="~/Public/img/separator_light.png" alt="">
+                        <p class="large">
+                           @Model.WeAreVincents.Text
+                        </p>
+                        <a class="book" href="#">Book Now ></a>
+                        <a class="view" href="@Url.Action("Index","Menu")">View Menu ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="foodItems">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12 col-md-4">
+                    <div class="image1"></div>
+                </div>
+                <div class="col-lg-4 col-sm-12 col-md-4">
+                    <div class="quality">
+                        <img src="~/Public/img/icon_6.png" alt="">
+                        <h4>QUALITY FOODS</h4>
+                        <p>
+                            Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
+                            curabitur dapibus mauris sed leo cursus aliquetcras suscipit.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 col-md-4">
+                    <div class="image2"></div>
+                </div>
+
+                <div class="col-lg-4 col-sm-12 col-md-4">
+                    <div class="quality">
+                        <img src="~/Public/img/icon_5.png" alt="">
+                        <h4>ORIGINAL RECIPES</h4>
+                        <p>
+                            Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
+                            curabitur dapibus mauris sed leo cursus aliquetcras suscipit.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 col-md-4">
+                    <div class="image3"></div>
+                </div>
+                <div class="col-lg-4 col-sm-12 col-md-4">
+                    <div class="quality">
+                        <img src="~/Public/img/icon_4.png" alt="">
+                        <h4>FASTEST DELIVERY</h4>
+                        <p>
+                            Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
+                            curabitur dapibus mauris sed leo cursus aliquetcras suscipit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="counter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="aboutCounter">
+                        <span class="key">@Model.Menus.Count</span>
+                        <h4>MENU ITEMS</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="aboutCounter">
+                        <span class="key">@Model.Users.Count</span>
+                        <h4>VISITORS EVERYDAY</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="aboutCounter">
+                        <span class="key">@Model.Setting.EstablishDate.Year</span>
+                        <h4> EXPERIENCE FROM</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="imageGalery">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>
+                        IMAGE GALLERY
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (var item in Model.Galeries.Take(8))
+                {
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="image">
+                            <img src="~/Uploads/@item.Image" alt="">
+                            <div class="overlay"></div>
+                            <div onclick="openImage(event)" class="plus" data-index="@item.Id">+</div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 offset-lg-4">
+                    <div class="mySlide">
+                        <div class="aboutSlide">
+                            <div class="slideInner">
+                                @foreach (var item in Model.Galeries.Take(8))
+                                {
+                                    <img src="~/Uploads/@item.Image" alt="..." data-index="@item.Id">
+                                }
+                            </div>
+                            <div class="slideArrow">
+                                <div class="leftArrow">
+                                    <i class="fas fa-caret-left"></i>
+                                </div>
+                                <div class="rightArrow">
+                                    <i class="fas fa-caret-right"></i>
+                                </div>
+                            </div>
+                            <i onclick="closeImage()" class="fas fa-times myCloseBtn"></i>
+                        </div>
+                    </div>
+                    <div class="bg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title">
+                        <h6>NOT JUST A PIZZA, BUT LIFESTYLE</h6>
+                        <h1>MAKE A RESERVATION</h1>
+                        <img src="~/Public/img/separator_dark.png" alt="">
+                        <p>
+                            And yes, we’re pizza people. But we’re also human people, we lead with our hearts, we
+                            believe in giving back to the global community. Join us, welcome to our pizzerias!
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="reservForm">
+                        <form action="@Url.Action("Reservation","About")" method="post" enctype="multipart/form-data" autocomplete="off">
+                            <input class="responsive" type="text" placeholder="Your Name" name="Name">
+                            <input class="responsive" type="text" placeholder="Your Phone" name="Phone">
+                            <input class="responsive" type="text" placeholder="Date" id="dt" name="Date">
+                            <input class="responsive" type="text" placeholder="Number of People" name="Count">
+                            <input class="lastInput" type="text" placeholder="Special Requests" name="Requests">
+                            <button class="formBtn" type="submit">Book a Table ></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="goTopBtn">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="goTop">
+                        <i class="fas fa-chevron-up animate heartBeat"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+

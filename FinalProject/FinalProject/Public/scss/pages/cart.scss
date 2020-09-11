@@ -1,0 +1,214 @@
+#cart {
+    background: $black;
+    color: $white;
+    font-family: $titleFont;
+
+    .container {
+        .row {
+            .col-lg-8 {
+                form {
+                    margin-top: 100px;
+
+                    table {
+                        font-family: $titleFont;
+                        color: $white;
+                        margin-left: -20px;
+                        text-align: center;
+                        width: 100%;
+
+                        thead {
+                            tr {
+                                background: #252c30;
+
+                                th {
+                                    font-weight: 700;
+                                    padding: 10px 0px;
+                                    line-height: 1.5em;
+                                    font-family: $textFont;
+                                }
+                            }
+                        }
+
+                        tbody {
+                            tr {
+                                td {
+                                    padding-top: 42px;
+                                    border-bottom: 2px solid white;
+                                    padding-bottom: 40px;
+
+                                    a {
+                                        text-decoration: none;
+                                        color: $white;
+
+                                        img {
+                                            width: 80px;
+                                            height: 80px;
+                                            border-radius: 50%;
+                                            margin-left: 32px;
+                                        }
+                                    }
+
+                                    input {
+                                        width: 38px;
+                                        background: transparent;
+                                        border: 2px solid white;
+                                        color: white;
+                                        text-align: center;
+
+                                        &:focus {
+                                            outline: none;
+                                        }
+                                    }
+
+                                    input::-webkit-outer-spin-button,
+                                    input::-webkit-inner-spin-button {
+                                        -webkit-appearance: none;
+                                        margin: 0;
+                                    }
+                                }
+
+                                .name {
+                                    text-transform: uppercase;
+                                    letter-spacing: 2px;
+                                }
+                            }
+                        }
+                    }
+
+                    .cartTotals {
+                        margin-top: 100px;
+
+                        h2 {
+                            line-height: 28px;
+                            font-size: 18px;
+                            font-weight: 700;
+                            letter-spacing: 5px;
+                            text-transform: uppercase;
+                            margin-bottom: 25px;
+                        }
+
+                        table {
+                            margin-left: 0px;
+                            text-align: left;
+
+                            tbody {
+                                tr {
+                                    th {
+                                        font-weight: 100;
+                                        font-size: 18px;
+                                        letter-spacing: 2px;
+                                        width: 60px;
+                                    }
+
+                                    td {
+                                        border-bottom: none;
+
+                                        span {
+                                            margin-left: 25px;
+                                            letter-spacing: 2px;
+                                            font-weight: 700;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .proceedBtn {
+                            margin-top: 35px;
+
+                            button {
+                                display: inline-block;
+                                font-size: 14px;
+                                line-height: 26px;
+                                letter-spacing: 3px;
+                                font-weight: 400;
+                                border-radius: 0;
+                                padding: 7px 20px 9px;
+                                background: $orange;
+                                text-decoration: none;
+                                color: $black;
+                                text-transform: uppercase;
+                                transition: all 0.3s;
+                                border: none;
+
+                                &:hover {
+                                    color: $white;
+                                    background: $gray;
+                                }
+
+                                &:focus {
+                                    outline: 0px auto -webkit-focus-ring-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .col-lg-4 {
+                margin-top: 100px;
+
+                .search {
+                    margin-bottom: 30px;
+
+                    input {
+                        background: transparent;
+                        border: 2px solid #252c30;
+                        width: 100%;
+                        text-transform: uppercase;
+                        height: 40px;
+                        font-size: 14px;
+                        letter-spacing: 2px;
+                        padding-left: 20px;
+                        color: $white;
+
+                        &::placeholder {
+                            color: $white;
+                        }
+
+                        &:focus {
+                            outline: unset;
+                        }
+                    }
+
+                    i {
+                        position: absolute;
+                        top: 13px;
+                        right: 35px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 772px) {
+    #cart {
+        .container {
+            .col-lg-8 {
+                form {
+                    table {
+                        margin-left: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    #cart {
+        .container {
+            .col-lg-8 {
+                form {
+                    table {
+                        margin-left: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,273 @@
+﻿@model FinalProject.ViewModels.vmHome
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section id="slider">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="cornerTop"></div>
+                    <div class="sliderArea">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item customSlider one active">
+                                    <img src="~/Uploads/@Model.Sliders.FirstOrDefault(m=>m.Type=="first").Image"
+                                         class="d-block animated fadeInDownBig " alt="...">
+                                    <h1 class="animated lightSpeedInLeft">@Model.Sliders.FirstOrDefault(m => m.Type == "first").Title</h1>
+                                    <h5 class="animated lightSpeedInRight">
+                                        @Model.Sliders.FirstOrDefault(m => m.Type == "first").Subtitle
+                                    </h5>
+                                </div>
+                                <div class="carousel-item customSlider two">
+                                    <img src="~/Uploads/@Model.Sliders.FirstOrDefault(m=>m.Type=="second").Image"
+                                         class="d-block animated fadeInRight " alt="...">
+                                    <h1 class="animated fadeInDownBig">@Model.Sliders.FirstOrDefault(m => m.Type == "second").Title.</h1>
+                                    <h3 class="animated lightSpeedInLeft">@Model.Sliders.FirstOrDefault(m => m.Type == "second").Subtitle</h3>
+                                    <h5 class="animated fadeInUp">
+                                        @Model.Sliders.FirstOrDefault(m => m.Type == "second").Description
+                                    </h5>
+                                    <div class="sliderBtn ">
+                                        <a href="@Url.Action("Index","Shop")" class="orderBtn customButton animated fadeInUpBig">
+                                            Order
+                                            Now
+                                            >
+                                        </a>
+                                        <a href="@Url.Action("Index","Menu")" class="viewBtn customButton animated fadeInUpBig">
+                                            View
+                                            Menu
+                                            >
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item three">
+                                    <h3 class="animated fadeInDownBig">@Model.Sliders.FirstOrDefault(m => m.Type == "third").Subtitle</h3>
+                                    <h1 class="animated fadeInDownBig">@Model.Sliders.FirstOrDefault(m => m.Type == "third").Title</h1>
+                                    <h5 class="animated lightSpeedInLeft">
+                                        @Model.Sliders.FirstOrDefault(m => m.Type == "third").Description
+                                    </h5>
+                                    <a href="@Url.Action("Index","Shop")" class="shopBtn customButton animated fadeInUpBig">
+                                        Shop Now
+                                        >
+                                    </a>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aboutCompany">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="items">
+                        <img src="~/Public/img/icon_1.png" alt="">
+                        <h4>QUALITY FOODS</h4>
+                        <p>
+                            Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
+                            curabitur dapibus mauris sed leo cursus aliquetcras suscipit.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="items">
+                        <img src="~/Public/img/icon_3.png" alt="">
+                        <h4>FASTEST DELIVERY</h4>
+                        <p>
+                            Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
+                            curabitur dapibus mauris sed leo cursus aliquetcras suscipit.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="items">
+                        <img src="~/Public/img/icon_2.png" alt="">
+                        <h4>ORIGINAL RECIPES</h4>
+                        <p>
+                            Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero
+                            curabitur dapibus mauris sed leo cursus aliquetcras suscipit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hotSales">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Hot Sales</h2>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (var item in Model.Menus.Take(4))
+                {
+                    <div class="col-lg-3 col-md-3">
+                        <div class="items">
+                            <a href="@Url.Action("Details","Menu",new { Id=item.Id})"><img src="~/Uploads/@item.Image" alt=""></a>
+                            <a href="@Url.Action("Details","Menu",new { Id=item.Id})">
+                                <h2>@item.Name</h2>
+                            </a>
+                            <a href="@Url.Action("Details","Menu",new { Id=item.Id})">
+                                <p>@item.Description</p>
+                            </a>
+                            <a href="@Url.Action("Details","Menu",new { Id=item.Id})"><span>$ @item.Price</span></a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+
+    <section id="weAreLegend">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="leftSide">
+                        <h1>@Model.WeAreVincents.Title</h1>
+                        <p class="title">
+                           @Model.WeAreVincents.SubTitle
+                        </p>
+                        <img src="~/Public/img/separator_dark.png" alt="">
+                        <p class="subtitle1">
+                           @Model.WeAreVincents.Text
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    @foreach (var item in Model.Reviews)
+                    {
+                        <div class="feedbacks">
+                            <p>
+                                @item.Reviews
+                            </p>
+                            <img src="~/Uploads/@item.Image" alt="">
+                            <h5>@item.Name @item.Surname</h5>
+                            <h6>@item.Position</h6>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="discoverOurMenu">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>DISCOVER OUR MENU</h2>
+                    <div class="menuLinks">
+                        @foreach (var item in Model.MenuCategories)
+                        {
+                            <a href=""  class="menuCat" data-id="@item.Id">@item.Name</a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row customRow">
+                @foreach (var item in Model.Menus.Where(m=>m.MenuCategoryId==4).Take(8))
+                {
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="listItem2">
+                            <div class="image2">
+                                <a href="@Url.Action("Details", "Menu",new { Id=item.Id})"><img src="~/Uploads/@item.Image" alt=""></a>
+                                <div class="overlay">
+                                    <div class="cartIcon"></div>
+                                    <div class="bagIcon">
+                                        <a class="addtoCart" data-id="@item.Id" href=""><i class="fas fa-shopping-bag"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info2">
+                                <a href="@Url.Action("Details", "Menu",new { Id=item.Id})">
+                                    <h5>@item.Name</h5>
+                                </a>
+                                <p>
+                                        @(item.Description.Length>50 ? item.Description.Substring(0, 50): item.Description)
+                                </p>
+                                <span class="price">$ @item.Price.ToString("0.00")</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+           
+        </div>
+    </section>
+
+    <section id="smthFromBlog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="infoBlog">
+                        <h6>NOT JUST A PIZZA, BUT LIFESTYLE</h6>
+                        <h1>SOMETHING FROM THE BLOG</h1>
+                        <img src="~/Public/img/separator_dark.png" alt="">
+                        <p>
+                            And yes, we’re pizza people. But we’re also human people, we lead with our hearts, we
+                            believe in giving back to the global community. Join us, welcome to Our Blog!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (var item in Model.Blogs.Take(4))
+                {
+                <div class="col-lg-3 col-sm-6">
+                    <div class="blogItems">
+                        <h6>@item.Date.ToString("MMMM dd,yyyy")</h6>
+                        <h5>@item.Title</h5>
+                        <a href="@Url.Action("Detail","Blogs", new { Id=@item.Id})">Read More ></a>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="subscribe">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="subscribePart">
+                        <h1>SUBSCRIBE FOR OUR NEWSLETTER</h1>
+                        <form autocomplete="off" id="submitSubs" >
+                            <input type="email" placeholder="  Enter Your Email" name="Email" id="Email">
+                            <button id="btnSubmit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="goTopBtn">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="goTop">
+                        <i class="fas fa-chevron-up animate heartBeat"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>

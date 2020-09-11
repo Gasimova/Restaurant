@@ -1,0 +1,36 @@
+.rightSideTags {
+    background: $sideBarBackColor;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-family: $titleFont;
+    padding: 40px 40px;
+    h6 {
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+    a {
+        text-decoration: none;
+        color: $white;
+        display: inline-block;
+        font-size: 14px !important;
+        line-height: 26px;
+        letter-spacing: 3px;
+        border: solid 2px #252c30;
+        padding: 4px 9px 6px 14px;
+        margin: 0 6px 10px 0;
+        transition: all 0.3s;
+        &::after {
+            content: "\002022";
+            font-family: "Font Awesome 5 Free";
+            margin-left: 6px;
+        }
+        &:hover {
+            color: $orange;
+            border-color: $orange;
+        }
+    }
+}

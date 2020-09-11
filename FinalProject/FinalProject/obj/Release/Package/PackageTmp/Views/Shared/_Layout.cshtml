@@ -1,0 +1,185 @@
+﻿@using FinalProject.Models
+
+@{ 
+    User user = (User)Session["LoginnerUser"];
+
+    Setting setting = new Setting();
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/6316a12e1f.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.compat.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rome/3.0.2/rome.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Public/css/style.css">
+    <title>Vincent Restaurant</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 ">
+                    <div class="hours">
+                        <img src="~/Public/img/icon_phone.png" alt="">
+                        <span>+ 0123 45 67</span>
+                        <p>8:00 am – 11:30 pm</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 ">
+                    <div class="mainLogo">
+                        <a href="@Url.Action("Index","Home")"><img src="~/Uploads/@ViewBag.setting.HeaderLogo" alt=""></a>
+                    </div>
+                    <div class="myNav">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" id="navbar-show"
+                                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="@Url.Action("Index","Home")">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="@Url.Action("Index","About")">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="@Url.Action("Index","Menu")">Menu</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="@Url.Action("Index","Blogs")">Blog</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="@Url.Action("Index","Shop")">Shop</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="@Url.Action("Index","Team")">Team</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="@Url.Action("Index","Contact")">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-3 sidebar">
+                    <div class="rightSide">
+                        @if (Session["LoginnerUser"] != null)
+                        {
+                            <div class="userName navbar">
+                                <button class="navbar-toggler" type="button" id="profile">
+                                    @if (user != null)
+                                    {
+                                        <span>@user.Username</span>
+                                    }
+
+                                    <a href="@Url.Action("Index","Card")">
+                                        <img src="~/Public/img/icon_cart.png" alt="">
+                                        <span class="countOfProduct">@ViewBag.CardCount</span>
+                                    </a>
+                                    <i class="fas fa-bars"></i>
+                                    <div class="userDropMenu collapse">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item userOrders" data-id="@Session["LoginnerUserId"]"><a class="nav-link" href="@Url.Action("MyOrders", "Home")">My Orders</a></li>
+                                            <li class="nav-item userSetting" data-id="@Session["LoginnerUserId"]"><a class="nav-link" href="@Url.Action("Settings", "Home")">Settings</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Logout", "Home")">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </button>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="loginAndCart">
+                                <a href="@Url.Action("SignUp", "Home")" class="signUp">Sign up</a>
+                                <a href="@Url.Action("Login", "Home")" class="login">Login</a>
+                            </div>
+                            <div class="cart">
+                                <a href="@Url.Action("Index", "Card")"><img src="~/Public/img/icon_cart.png" alt=""></a>
+                                <h5 class="countOfProduct">@ViewBag.CardCount</h5>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    @RenderBody()
+
+    <footer>
+        <section id="footerArea">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-3 col-md-3 col-3 ">
+                        <div class="footerLogo">
+                            <img src="~/Uploads/@ViewBag.setting.FooterLogo" alt="">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-3 col-md-3 col-3 ">
+                        <div class="hours">
+                            <h4>Opening Hours</h4>
+                            <span>@ViewBag.setting.Weekday</span>
+                            <span>@ViewBag.setting.Weekend</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-3 col-md-3 col-3">
+                        <div class="socialLinks">
+                            <a href="@ViewBag.setting.Facebook"> <i class="fab fa-facebook-f"></i></a>
+                            <a href="@ViewBag.setting.Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="@ViewBag.setting.Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-3 col-md-3 col-3 ">
+                        <div class="shoppingCards">
+                            <img src="~/Uploads/@ViewBag.setting.Visa" alt="">
+                            <img src="~/Uploads/@ViewBag.setting.MasterCard" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="copyRight">Copyright © 2020 Vincent. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="~/Public/plugins/jquery.c-share.js"></script>
+    <script src="~/Public/plugins/jquery.c-share.min.js"></script>
+    @*<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>*@
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rome/3.0.2/rome.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="~/Public/js/main.js"></script>
+
+</body>
+
+</html>

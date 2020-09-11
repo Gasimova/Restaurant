@@ -1,0 +1,171 @@
+﻿@model FinalProject.ViewModels.vmTeam
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <section id="vincentTitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="innerText">
+                        <h1>Meet our awesome team</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <div class="row customRow">
+                @foreach (var item in Model.Teams)
+                {
+                    <div class="col-lg-4 col-sm-4 col-xs-6">
+                        <div class="teamInfo">
+                            <div class="teamImage">
+                                <div class="overlay"></div>
+                                <div class="socialLinks">
+                                    <a href="@item.Facebook"> <i class="fab fa-facebook-f"></i></a>
+                                    <a href="@item.Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="@item.Instagram"><i class="fab fa-instagram"></i></a>
+                                </div>
+                                <img src="~/Uploads/@item.Image" alt="">
+                            </div>
+                            <div class="info">
+                                <h5>@item.Name @item.Surname</h5>
+                                <p>@item.Position.Name</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="ourPhilosophy">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12 col-md-4">
+                    <div class="leftSide">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 col-md-4">
+                    <div class="middle">
+                        <h2>Our Philosophy</h2>
+                        <h6>we don’t just make pizza. We make people’s days.</h6>
+                        <h6>Vincent Pizzeria was built on the belief that</h6>
+                        <h6>pizza should be special.</h6>
+                        <img src="~/Public/img/separator_light.png" alt="">
+                        <p>
+                            With more than 50 years of experience under our belts, we understand how to best serve
+                            our customers through tried and true service principles. Instead of following trends, we
+                            set them. We create food we’re proud to serve and deliver it fast.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 col-md-4">
+                    <div class="rightSide">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="accordionPart">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="customAccordion">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                data-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                           @Model.Accordions.FirstOrDefault(a=>a.Title== "Our Philosophy").Title
+                                            <i class="fas fa-angle-down"></i>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p>
+                                            @Model.Accordions.FirstOrDefault(a => a.Title == "Our Philosophy").Text
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false"
+                                                aria-controls="collapseTwo">
+                                            @Model.Accordions.FirstOrDefault(a => a.Title == "Our Purpose").Title
+                                            <i class="fas fa-angle-down"></i>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p>
+                                            @Model.Accordions.FirstOrDefault(a => a.Title == "Our Purpose").Text
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseThree" aria-expanded="false"
+                                                aria-controls="collapseThree">
+                                            @Model.Accordions.FirstOrDefault(a => a.Title == "Best Service").Title
+                                            <i class="fas fa-angle-down"></i>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p>
+                                            @Model.Accordions.FirstOrDefault(a => a.Title == "Best Service").Text
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="essentials">
+                        <h6>@Model.Blog.Date.ToString("MMMM dd,yyyy")</h6>
+                        <h5>@Model.Blog.Title</h5>
+                        <p>
+                            @Html.Raw(Model.Blog.Text.Length>50 ? Model.Blog.Text.Substring(0,50) +"...": Model.Blog.Text)
+                        </p>
+                        <a href="@Url.Action("Detail","Blogs" , new { Id=Model.Blog.Id})">Read more ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="goTopBtn">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="goTop">
+                        <i class="fas fa-chevron-up animate heartBeat"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

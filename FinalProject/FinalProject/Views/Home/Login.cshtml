@@ -1,0 +1,31 @@
+﻿@model FinalProject.ViewModels.vmLogin
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <section id="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="innerLogin">
+                        <div class="info">
+                            <span>Don't have an account ? <a href="@Url.Action("SignUp","Home")">Sign Up</a></span>
+                        </div>
+                    <form method="post" action="@Url.Action("Login","Home")" class="needs-validation" novalidate="" autocomplete="off">
+                            @Html.TextBoxFor(l => l.Email, null, new { @class = "diff", @placeholder="Enter your email", @Value = ViewBag.email })
+                            @Html.ValidationMessageFor(l => l.Email, null, new { @class = "text-danger" })
+                       
+                            @Html.TextBoxFor(l => l.Password, null, new { @class = " diff", @type = "password", @placeholder = "Enter your password", @Value = ViewBag.password })
+                            @Html.ValidationMessageFor(l => l.Password, null, new { @class = "text-danger" })
+                            <button type="submit">Login</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+   

@@ -1,0 +1,86 @@
+
+//blog items
+#blogItems {
+    background: $black;
+    color: $white;
+    font-family: $titleFont;
+    padding-bottom: 100px;
+    padding-top: 100px;
+
+    .container {
+        .row {
+            margin-bottom: 100px;
+
+            .col-lg-3 {
+                .blogs {
+                    text-transform: uppercase;
+                    text-align: left;
+                    margin-bottom: 100px;
+
+                    h4 {
+                        width: 190px;
+                        letter-spacing: 5px;
+                        text-align: left;
+                        line-height: 38px;
+                        margin-bottom: 9px;
+                        height: 110px;
+
+                        a {
+                            text-decoration: none;
+                            color: $white;
+                            transition: all .3s;
+
+                            &:hover {
+                                color: $orange;
+                            }
+                        }
+                    }
+
+                    .p {
+                        margin: 0px !important;
+                    }
+
+                    .category,
+                    .publisedDate,
+                    .author,
+                    .commentsCount {
+                        font-size: 14px;
+                        letter-spacing: 3px;
+                    }
+
+                    .category,
+                    .publisedDate,
+                    .author {
+                        &::after {
+                            content: "/";
+                            color: $white;
+                            opacity: 0.3;
+                            margin-left: 5px;
+                            font-weight: 100;
+                        }
+                    }
+
+                    .publisedDate {
+                        margin-top: -20px;
+                    }
+
+                    .author {
+                        margin-top: -20px;
+                    }
+
+                    .commentsCount {
+                        margin-top: -20px;
+                    }
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+
+        .customRow {
+            margin-bottom: -22px;
+        }
+    }
+}

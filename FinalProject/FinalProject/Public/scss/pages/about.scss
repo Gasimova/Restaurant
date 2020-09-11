@@ -1,0 +1,594 @@
+.active {
+    display: block;
+}
+
+#aboutImgs {
+    background: $black;
+    padding-top: 100px;
+    .container {
+        .row {
+            .col-lg-6 {
+                .items {
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#weAreVincent {
+    background: $black;
+    color: $white;
+    padding-top: 75px;
+    text-align: center;
+    padding-bottom: 75px;
+    font-family: $titleFont;
+    .container {
+        .row {
+            .col-lg-12 {
+                .info {
+                    h2 {
+                        letter-spacing: 6px;
+                        margin-bottom: 30px;
+                    }
+                    h6 {
+                        letter-spacing: 3px;
+                        line-height: 32px;
+                        padding: 0px 100px;
+                        margin-bottom: 40px;
+                    }
+                    img {
+                    }
+                    .large {
+                        font-family: $textFont;
+                        font-size: 16px;
+                        font-weight: 100;
+                        padding: 0px 89px;
+                        margin-top: 40px;
+                        margin-bottom: 50px;
+                    }
+                    .book {
+                        @include buttonWhite;
+                        margin-right: 10px;
+                    }
+                    .view {
+                        @include buttonOrange;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#foodItems {
+    background: $gray;
+    color: $white;
+    font-family: $titleFont;
+    .container-fluid {
+        .row {
+            .col-lg-4 {
+                padding: 0px 0px;
+                .image1 {
+                    background-image: url("../img/img_1.jpg");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    // width: 420px;
+                    width: 100%;
+                    height: 650px;
+                }
+                .image2 {
+                    background-image: url("../img/img2.jpg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    // width: 420px;
+                    width: 100%;
+                    height: 650px;
+                }
+                .image3 {
+                    background-image: url("../img/19.jpg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    // width: 420px;
+                    width: 100%;
+                    height: 650px;
+                }
+                .quality {
+                    text-align: center;
+                    img {
+                        margin-top: 130px;
+                        margin-bottom: 45px;
+                    }
+                    h4 {
+                        letter-spacing: 5px;
+                        padding: 0px 120px;
+                    }
+                    p {
+                        font-size: 15px;
+                        font-family: $textFont;
+                        font-weight: 100;
+                        margin-top: 25px;
+                        padding: 0px 72px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#counter {
+    background-image: url("../img/back_2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    .container {
+        .row {
+            .col-lg-4 {
+                .aboutCounter {
+                    text-align: center;
+                    margin-top: 90px;
+                    font-family: $titleFont !important;
+                    span {
+                        font-size: 40px;
+                        line-height: 40px;
+                        letter-spacing: 8px;
+                        margin-bottom: 51px;
+                        transition: all 0.4s;
+                    }
+                    h4 {
+                        letter-spacing: 5px;
+                        margin-top: 45px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#imageGalery {
+    background: $black;
+    color: $white;
+    text-align: center;
+    font-family: $titleFont;
+    .container {
+        .row {
+            .col-lg-12 {
+                h2 {
+                    margin-top: 100px;
+                    letter-spacing: 6px;
+                    margin-bottom: 60px;
+                }
+            }
+            .col-lg-3 {
+                margin-bottom: 100px;
+                .image {
+                    width: 100%;
+                   
+                    img {
+                        max-width: 100%;
+                        padding-right: 15px;
+                        padding-left: 10px;
+                        cursor: pointer;
+                    }
+                    .overlay {
+                        background: $orange;
+                        opacity: 0.8;
+                        position: absolute;
+                        top: 0;
+                        left: 25px;
+                        width: 81%;
+                        height: 100%;
+                        display: none;
+                        transition: all 0.9s;
+                        overflow: hidden;
+                    }
+                    .plus {
+                        position: absolute;
+                        top: 35%;
+                        left: 39%;
+                        width: 60px;
+                        height: 60px;
+                        font-size: 40px;
+                        font-family: $titleFont;
+                        line-height: 55px;
+                        border-radius: 50%;
+                        background: $black;
+                        color: $white;
+                        transition: all 0.5s;
+                        z-index: 100;
+                        opacity: 0;
+                        transform: scale(0);
+                    }
+                    &:hover {
+                        .overlay {
+                            display: block;
+                        }
+                        .plus {
+                            opacity: 1;
+                            transform: scale(1);
+                            color: $orange;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+        .row {
+            .col-lg-4 {
+                .bg {
+                    background: $black;
+                    opacity: 0.8;
+                    height: 5241px;
+/*                    width: 1263px;*/
+width:100%;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    z-index: 300;
+                    display: none;
+                }
+
+                .mySlide {
+                    background: white;
+                    width: 363px;
+                    height: 400px;
+                    margin-left: -43px;
+                    margin-top: 8px;
+                    position: fixed;
+                    top: 59px;
+                    left: 36.5%;
+/*left:40.5%;*/
+                    z-index: 200;
+                    display: none;
+                    transition: all 3s;
+                    transform: scale(0);
+                    overflow: hidden;
+                    .aboutSlide {
+                        // position: relative;
+                        height: 350px;
+                        .slideInner {
+                            position: fixed;
+                            top: 6px;
+                            left: 2%;
+                            display: flex;
+                            width: 96%;
+                            overflow: hidden;
+                            height: 350px;
+
+                            img {
+                                max-width: 100%;
+                                height: 350px;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                display: flex;
+                                float: right;
+                                opacity: 0;
+                            }
+                        }
+                        .slideArrow {
+                            position: absolute;
+                            z-index: 500;
+                            top: 84%;
+                            left: 163px;
+                            color: #7a7b7b;
+                           
+                            .leftArrow {
+                                display: inline-block;
+                                i {
+                                    color: #7a7b7b;
+                                    font-size: 25px;
+                                    transition: all 0.3s;
+                                    &:hover {
+                                        color: $black;
+                                    }
+                                }
+                            }
+                            .rightArrow {
+                                display: inline-block;
+                                i {
+                                    color: #7a7b7b;
+                                    font-size: 25px;
+                                    margin-left: 25px;
+                                    transition: all 0.3s;
+                                    &:hover {
+                                        color: $black;
+                                    }
+                                }
+                            }
+                        }
+                        i {
+                            position: absolute;
+                            z-index: 500;
+                            top: 91%;
+                            left: 94%;
+                            color: #7a7b7b;
+                            cursor: pointer;
+                            transition: all 0.3s;
+                            &:hover {
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.active {
+    opacity: 1 !important;
+}
+
+@media (max-width: 1200px) {
+    #imageGalery {
+        .container {
+            .row {
+                .col-lg-3 {
+                    .image1 {
+                        .overlay {
+                            width: 77%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #reservation {
+        .container {
+            .row {
+                .col-lg-12 {
+                    .reservForm {
+                        form {
+                            .lastInput {
+                                width: 94%;
+                                margin-left: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    #imageGalery {
+        .container {
+            .row {
+                .col-lg-3 {
+                    .image {
+                        .overlay {
+                            width: 70% !important;
+                        }
+                        .plus {
+                            top: 31% !important;
+                            left: 36% !important;
+                            width: 50px !important;
+                            height: 50px !important;
+                            line-height: 47px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #reservation {
+        .container {
+            .row {
+                .col-lg-12 {
+                    .reservForm {
+                        form {
+                            .lastInput {
+                                width: 95%;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #imageGalery {
+        .container {
+            .row {
+                .col-lg-3 {
+                    .image {
+                        .overlay {
+                            width: 80% !important;
+                        }
+
+                        .plus {
+                            width: 50px !important;
+                            height: 50px !important;
+                            line-height: 49px !important;
+                            top: 39% !important;
+                            left: 42% !important;
+                        }
+                    }
+                }
+
+                .col-lg-4 {
+                    .mySlide {
+                        left: 29.5%;
+                    }
+                }
+            }
+        }
+    }
+
+    #foodItems {
+        .container-fluid {
+            .row {
+                .col-lg-4 {
+                    .image1 {
+                        width: 100% !important;
+                        height: 300px !important;
+                        background-size: cover !important;
+                    }
+                    .image2 {
+                        width: 100% !important;
+                        height: 300px !important;
+                        background-size: cover !important;
+                    }
+                    .image3 {
+                        width: 100% !important;
+                        height: 300px !important;
+                        background-size: cover !important;
+                    }
+                    .quality {
+                        padding-bottom: 30px !important;
+                        img {
+                            margin-top: 50px !important;
+                        }
+                        h4 {
+                            padding: 0px 20px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #counter {
+        height: 350px !important;
+    }
+
+    #reservation {
+        .container {
+            .row {
+                .col-lg-12 {
+                    .reservForm {
+                        form {
+                            .lastInput {
+                                width: 96% !important;
+                                margin-left: 0px !important;
+                            }
+                            .responsive {
+                                // width: 46% !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #weAreVincent{
+        .container{
+            .row{
+                .col-lg-12{
+                    .info{
+                        h6{
+                            padding: 0px;
+                        }
+                        .large{
+                            padding: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    #imageGalery {
+        .container {
+            .row {
+                .col-lg-3 {
+                    .image {
+                        .overlay {
+                            width: 90% !important;
+                        }
+
+                        .plus {
+                            top: 43% !important;
+                            left: 46% !important;
+                        }
+                    }
+                }
+
+                .col-lg-4 {
+                    .mySlide {
+                        left: 24.5%;
+                    }
+                }
+            }
+        }
+    }
+
+    #foodItems {
+        .container-fluid {
+            .row {
+                .col-lg-4 {
+                    .image1 {
+                        width: 100% !important;
+                        height: 444px !important;
+                        background-size: contain !important;
+                    }
+                    .image2 {
+                        width: 100% !important;
+                        height: 444px !important;
+                        background-size: contain !important;
+                    }
+                    .image3 {
+                        width: 100% !important;
+                        height: 444px !important;
+                        background-size: contain !important;
+                    }
+                    .quality {
+                        padding-bottom: 30px !important;
+                        img {
+                            margin-top: 50px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #counter {
+        height: 750px !important;
+    }
+
+    #reservation {
+        .container {
+            .row {
+                .col-lg-12 {
+                    .reservForm {
+                        form {
+                            .lastInput {
+                                width: 96% !important;
+                                margin-left: 0px !important;
+                            }
+                            .responsive {
+                                width: 46% !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #aboutImgs {
+        .container {
+            .row {
+                .col-lg-6 {
+                    .items {
+                        margin-bottom: 40px !important;
+                    }
+                }
+            }
+        }
+    }
+}

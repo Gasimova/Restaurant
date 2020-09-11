@@ -1,0 +1,93 @@
+﻿@model IEnumerable<FinalProject.Models.Setting>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HeaderLogo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FooterLogo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Facebook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instagram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Twitter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MasterCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weekday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weekend)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstablishDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Uploads/@item.HeaderLogo" width="100" alt="Alternate Text" />
+        </td>
+        <td>
+            <img src="~/Uploads/@item.FooterLogo" width="100" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Facebook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instagram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Twitter)
+        </td>
+        <td>
+            <img src="~/Uploads/@item.MasterCard" width="100" alt="Alternate Text" />
+        </td>
+        <td>
+            <img src="~/Uploads/@item.Visa" width="100" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weekday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weekend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstablishDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            <a href="@Url.Action("Delete","Settings", new { id=item.Id })" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

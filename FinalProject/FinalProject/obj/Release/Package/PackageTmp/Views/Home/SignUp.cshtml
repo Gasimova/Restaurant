@@ -1,0 +1,39 @@
+﻿@model FinalProject.Models.User
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <section id="signUp">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="signInfo">
+                        <h2>Create an account</h2>
+                        <form method="post" enctype="multipart/form-data" action="@Url.Action("SignUp","Home")" autocomplete="off">
+                            <input class="same" type="text" placeholder="Name *" name="Name">
+                            <input class="same" type="text" placeholder="Surname *" name="Surname">
+                            <input class="long" type="text" placeholder="Username *" name="Username">
+                            <input class="long" type="email" placeholder="Email *" name="Email">
+                            <div class="show">
+                                <input class="long" type="password" placeholder="Password *" name="Password">
+                                <i onclick="showPsw()" class="fas fa-eye"></i>
+                                <i onclick="showPsw()" class="fas fa-eye-slash"></i>
+                            </div>
+                            <div class="show2">
+                                <input class="long" type="password" placeholder="Repeat password *" name="RepeatPassword">
+                                <i onclick="showPsw2()" class="fas fa-eye"></i>
+                                <i onclick="showPsw2()" class="fas fa-eye-slash"></i>
+                            </div>
+                            <input class="long" type="text" placeholder="Phone *" name="Phone">
+                            <input class="long" type="text" placeholder="Address *" name="Address">
+                            <button type="submit">Registr</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

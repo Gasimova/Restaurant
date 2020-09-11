@@ -1,0 +1,122 @@
+﻿@model FinalProject.ViewModels.vmBlog
+@{
+    ViewBag.Title = "MyOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <section id="vincentTitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="innerText">
+                        <h1>My orders</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="orders">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <form action="#">
+                        <table class="productTable">
+                            <thead class="headOfTable">
+                                <tr class="rowTable">
+                                    <th class="orderDate">Ordered Date</th>
+                                    <th class="imageTable">&nbsp;</th>
+                                    <th class="product">Product</th>
+                                    <th class="price">Price</th>
+                                    <th class="quantity">Quantity</th>
+                                    <th class="total">Total</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody class="bodyOfTable">
+                                @foreach (var item in Model.Orders)
+                                {
+                                    <tr class="rowBody">
+                                        <td class="removeProduct">
+                                            <span>@(item.CreatedDate!=null ?item.CreatedDate.ToString("MMMM dd,yyyy"):"")</span>
+                                        </td>
+                                        <td class="imgProduct">
+                                            <a href="@Url.Action("Details","Menu",new { Id=item.Id})"><img src="~/Uploads/@item.Menu.Image" alt=""></a>
+                                        </td>
+                                        <td class="name">
+                                            <a href="#">@item.Menu.Name</a>
+                                        </td>
+                                        <td class="priceProduct">
+                                            <span>$@item.Menu.Price</span>
+                                        </td>
+                                        <td class="quantityProduct">
+                                            <span class="quantity">@item.Quantity</span>
+                                        </td>
+                                        <td class="totalProduct">
+                                            <h6>$@item.Price</h6>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <div class="posts">
+                        <h6>Featured Posts</h6>
+                        @foreach (var item in Model.Blogs.Take(2))
+                        {
+                            <div class="post">
+                                <img src="~/Uploads/@item.Image" alt="">
+                                <a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">
+                                    <h4>@item.Title</h4>
+                                </a>
+                                <span>April 6, 2017</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="recentPosts">
+                        <h6>Recent Posts</h6>
+                        <ul>
+                            @foreach (var item in Model.Blogs.OrderBy(m => m.CreatedDate).Take(5))
+                            {
+                                <li><a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">@item.Title</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="rightSideTags">
+                        <h6>Tags</h6>
+                        @foreach (var item in Model.Tags.OrderByDescending(o => o.Name).Take(7))
+                        {
+                            <a id="tag" href="@Url.Action("Index","Blogs", new { tag=item.Name})" name="tag">#@item.Name</a>
+                        }
+                    </div>
+                    <div class="instaFeed">
+                        <h6>Instafeed</h6>
+                        @foreach (var item in Model.InstaFeeds.Take(6))
+                        {
+                            <a href="@item.Link">
+                                <img src="~/Uploads/@item.Image" alt="">
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="goTopBtn">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="goTop">
+                        <i class="fas fa-chevron-up animate heartBeat"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

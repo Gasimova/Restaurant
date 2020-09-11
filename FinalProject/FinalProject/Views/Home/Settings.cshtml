@@ -1,0 +1,115 @@
+﻿@model FinalProject.ViewModels.vmBlog
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <section id="vincentTitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="innerText">
+                        <h1>Account Information</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="settings">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="billingDetails">
+                        <h3>Details</h3>
+                        <form action="@Url.Action("Settings","Home")" method="post" autocomplete="off">
+                            @if (Session["ModelError"] != null)
+                            {
+                                <div class="alert alert-warning">You must fill all required inputs</div>
+                                Session["ModelError"] = null;
+                            }
+                            @if (Session["PassError"] != null)
+                            {
+                                <div class="alert alert-warning">Your password is not matchs</div>
+                                Session["PassError"] = null;
+                            }
+
+                            <label class="name" for="name">First name *</label>
+                            <input class="custom" type="text" id="name" name="Name" value="@Model.User.Name">
+                            <label class="name" for="lastName">Last name *</label>
+                            <input class="custom" type="text" id="lastName" name="Surname" value="@Model.User.Surname">
+                            <label for="username">Username *</label>
+                            <input type="text" id="username" name="Username" value="@Model.User.Username">
+                            <label for="address">Address *</label>
+                            <input type="text" id="address" name="Address" value="@Model.User.Address">
+                            <label for="phone">Phone *</label>
+                            <input type="number" id="phone" name="Phone" value="@Model.User.Phone">
+                            <label for="password">Password *</label>
+                            <input type="password" id="password" name="Password">
+                            <label for="RepeatPassword">Repeat Password *</label>
+                            <input type="password" id="RepeatPassword" name="RepeatPassword">
+                            <label for="email">Email address *</label>
+                            <input type="email" id="email" name="Email" value="@Model.User.Email">
+                            <button>Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="posts">
+                        <h6>Featured Posts</h6>
+                        @foreach (var item in Model.Blogs.Take(2))
+                        {
+                            <div class="post">
+                                <img src="~/Uploads/@item.Image" alt="">
+                                <a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">
+                                    <h4>@item.Title</h4>
+                                </a>
+                                <span>@item.Date.ToString("MMMM dd,yyyy")</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="recentPosts">
+                        <h6>Recent Posts</h6>
+                        <ul>
+                            @foreach (var item in Model.Blogs.OrderBy(m => m.CreatedDate).Take(5))
+                            {
+                                <li><a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">@item.Title</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="rightSideTags">
+                        <h6>Tags</h6>
+                        @foreach (var item in Model.Tags.OrderByDescending(o => o.Name).Take(7))
+                        {
+                            <a id="tag" href="@Url.Action("Index","Blogs", new { tag=item.Name})" name="tag">#@item.Name</a>
+                        }
+                    </div>
+                    <div class="instaFeed">
+                        <h6>Instafeed</h6>
+                        @foreach (var item in Model.InstaFeeds.Take(6))
+                        {
+                            <a href="@item.Link">
+                                <img src="~/Uploads/@item.Image" alt="">
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="goTopBtn">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="goTop">
+                        <i class="fas fa-chevron-up animate heartBeat"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

@@ -1,0 +1,170 @@
+#settings {
+    background: $black;
+    color: $white;
+    font-family: $titleFont;
+    position: relative;
+
+    .container {
+        .row {
+            .col-lg-4 {
+                margin-top: 100px;
+
+                .search {
+                    margin-bottom: 30px;
+
+                    input {
+                        background: transparent;
+                        border: 2px solid #252c30;
+                        width: 100%;
+                        text-transform: uppercase;
+                        height: 40px;
+                        font-size: 14px;
+                        letter-spacing: 2px;
+                        padding-left: 20px;
+                        color: $white;
+
+                        &::placeholder {
+                            color: $white;
+                        }
+
+                        &:focus {
+                            outline: unset;
+                        }
+                    }
+
+                    i {
+                        position: absolute;
+                        top: 13px;
+                        right: 35px;
+                        font-size: 13px;
+                    }
+                }
+            }
+
+            .col-lg-8 {
+                .billingDetails {
+                    margin-top: 100px;
+
+                    h3 {
+                        letter-spacing: 5px;
+                        text-transform: uppercase;
+                        margin-bottom: 100px;
+                    }
+
+                    form {
+
+                        button {
+                            @include buttonOrange;
+                        }
+
+                        label {
+                            display: block;
+                            line-height: 2px;
+                            font-family: $textFont;
+                            font-weight: 100;
+                            margin-bottom: 20px;
+                        }
+
+                        .name {
+                            display: inline-block;
+                            position: absolute;
+                            top: 208px;
+                        }
+
+                        .custom {
+                            width: 38%;
+                            margin-right: 20px;
+                        }
+
+                        input {
+                            background: transparent;
+                            border: 2px solid $borderColor;
+                            width: 80%;
+                            padding: 6px 0px;
+                            margin-bottom: 35px;
+                            color: $white;
+                            padding-left: 15px;
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+
+                        input::-webkit-outer-spin-button,
+                        input::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+@media(max-width:992px){
+    #settings{
+        .container{
+            .row{
+                .col-lg-8{
+                    .billingDetails{
+                        form{
+                            input{
+                                width: 80% !important;
+                            }
+                            .custom{
+                                width: 38% !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:772px){
+    #settings{
+        .container{
+            .row{
+                .col-lg-8{
+                    .billingDetails{
+                        form{
+                            input{
+                                width: 96% !important;
+                            }
+                            .custom{
+                                width: 45% !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:576px){
+    #settings{
+        .container{
+            .row{
+                .col-lg-8{
+                    .billingDetails{
+                        form{
+                            input{
+                                width: 95% !important;
+                            }
+                            .custom{
+                                width: 40% !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

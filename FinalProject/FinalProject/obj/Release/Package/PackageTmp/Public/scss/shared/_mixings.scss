@@ -1,0 +1,43 @@
+@mixin buttonWhite {
+    color: $white;
+    border: 2px solid $white;
+    padding: 6px 14px 6px 17px;
+    text-decoration: none;
+    font-family: $titleFont;
+    font-size: 14px;
+    animation-delay: 0.5s;
+    transition: ease-in-out 0.5s;
+    letter-spacing: 3px;
+    display: inline-block;
+    padding-left: 15px;
+    text-transform: uppercase;
+    &:hover{
+        text-decoration: none;
+        border: 2px solid $orange;
+        color: $orange;
+    }
+}
+
+@mixin buttonOrange {
+    background-color: $orange;
+    border: 2px solid $orange;
+    font-family: $titleFont;
+    font-size: 14px;
+    color: $black;
+    letter-spacing: 3px;
+    padding-right: 11px;
+    display: inline-block;
+    animation-delay: 0.8s;
+    transition: ease-in-out 0.5s;
+    padding: 6px 14px 6px 17px;
+    text-transform: uppercase;
+    &:hover {
+        text-decoration: none;
+        border: 2px solid $orange;
+        background: transparent;
+        color: $orange;
+    }
+}
+
+
+

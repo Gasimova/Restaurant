@@ -1,0 +1,217 @@
+#login {
+    background-image: url("../img/back_3.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    text-align: center;
+
+    .container {
+        .row {
+            .col-lg-8 {
+                .innerLogin {
+                    font-family: $titleFont;
+                    color: $black;
+                    padding-bottom: 100px;
+
+                    .info {
+                        text-align: left;
+                        margin-bottom: 20px;
+
+                        span {
+                            letter-spacing: 2px;
+
+                            a {
+                                text-decoration: none;
+                                margin-left: 5px;
+                                font-weight: 700;
+                                color: $black;
+                                text-transform: uppercase;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+
+                    form {
+                        .diff {
+                            background: transparent;
+                            border: 2px solid $black;
+                            margin-bottom: 45px;
+                            width: 45%;
+                            padding: 6px 0px;
+                            padding-left: 20px;
+                            letter-spacing: 2px;
+                            margin-right: 33px;
+                            position: relative;
+
+                            &::placeholder {
+                                color: $black;
+                            }
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+
+                        .formCheck {
+                            text-align: left;
+                            margin-top: -30px;
+                            margin-left: 11px;
+
+                            .checkInput {
+                                padding: 10px !important;
+
+                                &:focus {
+                                    color: $black;
+                                }
+                            }
+
+                            .checkLabel {
+                                letter-spacing: 2px;
+                            }
+                        }
+
+                        button {
+                            padding: 6px 40px;
+                            border: 2px solid $black;
+                            color: $black;
+                            background: transparent;
+                            text-transform: uppercase;
+                            letter-spacing: 2px;
+                            transition: all 0.3s;
+                            margin-top: 50px;
+                            position: absolute;
+                            right: 50px;
+                            top: 75px;
+
+                            &:focus {
+                                outline: 0px auto -webkit-focus-ring-color;
+                            }
+
+                            &:hover {
+                                border-color: $black;
+                                color: $white;
+                                background: $black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width: 1200px){
+    #login{
+        .container{
+            .row{
+                .col-lg-8{
+                    .innerLogin{
+                        form{
+                            .diff{
+                                width: 44%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+    #login {
+        .container {
+            .row {
+                .col-lg-8 {
+                    .innerLogin {
+                        .info{
+                            span{
+                                margin-left: 173px !important;
+                                font-size: 16px !important;
+                            }
+                        }
+                        form {
+                            .diff{
+                                width: 45%;
+                            }
+                            .formCheck{
+                                margin-left: 174px !important;
+                            }
+                            button {
+                                right: 222px !important;
+                                top: 230px !important;
+                                margin-top: 0px !important;
+                                padding: 6px 20px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 772px) {
+    #login {
+        .container {
+            .row {
+                .col-lg-8 {
+                    .innerLogin {
+                        .info{
+                            span{
+                                margin-left: 124px !important;
+                                font-size: 13px !important;
+                            }
+                        }
+                        form {
+                            .formCheck{
+                                margin-left: 126px !important;
+                            }
+                            button {
+                                right: 170px !important;
+                                top: 230px !important;
+                                margin-top: 0px !important;
+                                padding: 6px 20px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    #login {
+        .container {
+            .row {
+                .col-lg-8 {
+                    .innerLogin {
+                        .info{
+                            span{
+                                margin-left: 108px !important;
+                                font-size: 10px !important;
+                            }
+                        }
+                        form {
+                            .formCheck{
+                                margin-left: 123px !important;
+                                font-size: 12px;
+                            }
+                            button {
+                                right: 172px !important;
+                                top: 230px !important;
+                                margin-top: 0px !important;
+                                padding: 6px 20px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

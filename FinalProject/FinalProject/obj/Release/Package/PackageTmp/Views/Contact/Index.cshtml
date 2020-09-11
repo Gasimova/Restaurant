@@ -1,0 +1,203 @@
+﻿@model List<FinalProject.Models.Address>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+
+    <section id="vincentTitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="innerText">
+                        <h1>contact us</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactItems">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="innerContent first">
+                        <div class="overlay"></div>
+                        <div class="text">
+                            <h5> Quality Foods</h5>
+                            <p class="subtitle ">
+                                Sit amet, consectetur adipiscing elit quisque eget maximus velit
+                                non
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="innerContent second">
+                        <div class="overlay"></div>
+                        <div class="text">
+                            <h5> Quality Foods</h5>
+                            <p class="subtitle ">
+                                Sit amet, consectetur adipiscing elit quisque eget maximus velit
+                                non
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="innerContent third">
+                        <div class="overlay"></div>
+                        <div class="text">
+                            <h5> Quality Foods</h5>
+                            <p class="subtitle ">
+                                Sit amet, consectetur adipiscing elit quisque eget maximus velit
+                                non
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <div class="title">
+                        <h6>NOT JUST A PIZZA, BUT LIFESTYLE</h6>
+                        <h1>MAKE A RESERVATION</h1>
+                        <img src="~/Public/img/separator_dark.png" alt="">
+                        <p>
+                            And yes, we’re pizza people. But we’re also human people, we lead with our hearts, we
+                            believe in giving back to the global community. Join us, welcome to our pizzerias!
+                        </p>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-12"></div> -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="reservForm">
+                        <form action="@Url.Action("Reservation","Contact")" method="post" enctype="multipart/form-data" autocomplete="off">
+                            <input class="responsiveInput" type="text" placeholder="Your Name" name="Name">
+                            <input class="responsiveInput" type="text" placeholder="Your Phone" name="Phone">
+                            <input class="responsiveInput" type="text" placeholder="Date" id="dt" name="Date">
+                            <input class="responsiveInput" type="text" placeholder="Number of People" name="Count">
+                            <input class="lastInput" type="text" placeholder="Special Requests" name="Requests">
+                            <button class="formBtn" type="submit">Book a Table ></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="adress">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="headOfAdress">
+                        <h6>Not just a pizza, but Lifestyle</h6>
+                        <h1>our pizzerias</h1>
+                        <img src="~/Public/img/separator_light.png" alt="">
+                        <p>
+                            And yes, we’re pizza people. But we’re also human people, we lead with our hearts, we
+                            believe in giving back to the global community. Join us, welcome to our pizzerias!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="map">
+                        <iframe src="@Model.FirstOrDefault(m=>m.Filial=="BROOKLYN").Map"
+                                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <div class="addressWrapper">
+                        <div class="innerAddress">
+                            <h5 class="title">@Model.FirstOrDefault(m => m.Filial == "BROOKLYN").Filial</h5>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "BROOKLYN").Street</p>
+                            <p>+@Model.FirstOrDefault(m => m.Filial == "BROOKLYN").Phone</p>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "BROOKLYN").Email</p>
+                            <h5>Working Hours</h5>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "BROOKLYN").Weekday</p>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "BROOKLYN").Weekend</p>
+                        </div>
+                        <div class="image">
+                            <img src="~/Uploads/@Model.FirstOrDefault(m=>m.Filial=="BROOKLYN").Image" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <div class="addressWrapper">
+                        <div class="image toLeft">
+                            <img src="~/Uploads/@Model.FirstOrDefault(m=>m.Filial=="QUEENS").Image" alt="">
+                        </div>
+                        <div class="innerAddress toRight">
+                            <h5 class="title">@Model.FirstOrDefault(m => m.Filial == "QUEENS").Filial</h5>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "QUEENS").Street</p>
+                            <p>+@Model.FirstOrDefault(m => m.Filial == "QUEENS").Phone</p>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "QUEENS").Email</p>
+                            <h5>Working Hours</h5>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "QUEENS").Weekday</p>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "QUEENS").Weekend</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="map">
+                        <iframe src="@Model.FirstOrDefault(m=>m.Filial=="QUEENS").Map"
+                                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="map">
+                        <iframe src="@Model.FirstOrDefault(m=>m.Filial=="NEW JERSEY").Map"
+                                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <div class="addressWrapper">
+                        <div class="innerAddress">
+                            <h5 class="title">@Model.FirstOrDefault(m => m.Filial == "NEW JERSEY").Filial</h5>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "NEW JERSEY").Street</p>
+                            <p>+@Model.FirstOrDefault(m => m.Filial == "NEW JERSEY").Phone</p>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "NEW JERSEY").Email</p>
+                            <h5>Working Hours</h5>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "NEW JERSEY").Weekday</p>
+                            <p>@Model.FirstOrDefault(m => m.Filial == "NEW JERSEY").Weekend</p>
+                        </div>
+                        <div class="image">
+                            <img src="~/Uploads/@Model.FirstOrDefault(m=>m.Filial=="NEW JERSEY").Image" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="goTopBtn">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="goTop">
+                        <i class="fas fa-chevron-up animate heartBeat"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+

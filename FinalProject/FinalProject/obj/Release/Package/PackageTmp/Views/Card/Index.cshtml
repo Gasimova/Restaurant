@@ -1,0 +1,144 @@
+﻿@model FinalProject.ViewModels.vmCard
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <section id="vincentTitle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="innerText">
+                        <h1> Shopping Cart</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <form action="@Url.Action("Index", "Checkout")" method="post">
+                        <table class="productTable">
+                            <thead class="headOfTable">
+                                <tr class="rowTable">
+                                    <th class="remove">&nbsp;</th>
+                                    <th class="imageTable">&nbsp;</th>
+                                    <th class="product">Product</th>
+                                    <th class="price">Price</th>
+                                    <th class="quantity">Quantity</th>
+                                    <th class="total">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bodyOfTable">
+
+                                @if (Model.Menu != null)
+                                {
+                                    int i = 0;
+                                    foreach (var item in Model.Menu)
+                                    {
+                                        <tr class="rowBody">
+                                            <td class="removeProduct">
+                                                <a class="removeBtn" data-id="@item.Id" data-price="@item.Price" href=""><i class="fas fa-times"></i></a>
+                                            </td>
+                                            <td class="imgProduct">
+                                                <a href="#"><img src="~/Uploads/@item.Image" alt=""></a>
+                                            </td>
+                                            <td class="name">
+                                                <a href="#">@item.Name</a>
+                                            </td>
+                                            <td class="priceProduct">
+                                                <span>$@item.Price</span>
+                                            </td>
+                                            <td class="quantityProduct">
+                                                <input class="countProduct" data-id="@item.Id" data-price="@item.Price" type="number" name="Menu[@i].Quantity" min="1" value="1">
+                                                <input type="hidden" name="Menu[@i].Id" value="@item.Id" />
+                                            </td>
+                                            <td class="totalProduct">
+                                                <h6 data-id="@item.Id" data-price="@item.Price" class="priceTotal@(item.Id)">$@item.Price.ToString("0.00")</h6>
+                                            </td>
+                                        </tr>
+                                        {i++;}
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+                        <div class="cartTotals">
+                            <h2>Cart totals</h2>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>Total :</th>
+                                        <td><span class="totalPrice"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="proceedBtn">
+                                <button type="submit" class="orderButton">proceed to checkout</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="posts">
+                        <h6>Featured Posts</h6>
+                        @foreach (var item in Model.Blogs.Take(2))
+                        {
+                            <div class="post">
+                                <img src="~/Uploads/@item.Image" alt="">
+                                <a href="@Url.Action("Detail","Blogs", new { id=item.Id})">
+                                    <h4>@item.Title</h4>
+                                </a>
+                                <span>@item.Date.ToString("MMMM dd,yyyy")</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="recentPosts">
+                        <h6>Recent Posts</h6>
+                        <ul>
+                            @foreach (var item in Model.Blogs.Take(5))
+                            {
+                                <li><a href="@Url.Action("Detail","Blogs", new { Id=item.Id})">@item.Title</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="rightSideTags">
+                        <h6>Tags</h6>
+                        @foreach (var item in Model.Tags.OrderByDescending(o => o.Name).Take(7))
+                        {
+                            <a href="@Url.Action("Index","Blogs", new { tag=item.Name})" name="tag"> #@item.Name</a>
+                        }
+                    </div>
+                    <div class="instaFeed">
+                        <h6>Instafeed</h6>
+                        @foreach (var item in Model.InstaFeeds.Take(6))
+                        {
+                            <a href="@item.Link">
+                                <img src="~/Uploads/@item.Image" alt="">
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="goTopBtn">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="goTop">
+                        <i class="fas fa-chevron-up animate heartBeat"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
